@@ -86,7 +86,7 @@ Sets the entry permissions. (experimental)
 
 ## Things of Interest
 
-- [Changelog](https://github.com/ctalkington/node-zip-stream/blob/master/CHANGELOG)
+- [Changelog](https://github.com/ctalkington/node-zip-stream/releases)
 - [Contributing](https://github.com/ctalkington/node-zip-stream/blob/master/CONTRIBUTING.md)
 - [MIT License](https://github.com/ctalkington/node-zip-stream/blob/master/LICENSE-MIT)
 
