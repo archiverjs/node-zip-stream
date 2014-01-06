@@ -1,0 +1,5 @@
+v0.1.0:
+  date: 2014-01-XX
+  changes:
+    - broke apart logic from archiver into this module.
+    - implemented basic api for adding entries.
