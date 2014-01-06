@@ -29,7 +29,7 @@
   },
   "dependencies": {
     "readable-stream": "~1.1.9",
-    "iconv-lite" : "~0.2.11"
+    "lodash.defaults": "~2.4.1"
   },
   "devDependencies": {
     "chai": "~1.8.1",
