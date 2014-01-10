@@ -94,7 +94,7 @@ describe('utils', function() {
     });
   });
 
-  describe('defaults(object, source, gaurd)', function() {
+  describe('defaults(object, source, guard)', function() {
     it('should default when object key is missing', function() {
       var actual = utils.defaults({ value1: true }, {
         value2: true
