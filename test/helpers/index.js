@@ -6,6 +6,20 @@ var Stream = require('stream').Stream;
 var Readable = require('stream').Readable || require('readable-stream').Readable;
 var Writable = require('stream').Writable || require('readable-stream').Writable;
 
+function adjustDateByOffset(d, offset) {
+  d = d instanceof Date || new Date();
+
+  if (offset >= 1) {
+    d.setMinutes(d.getMinutes() - offset);
+  } else {
+    d.setMinutes(d.getMinutes() + Math.abs(offset));
+  }
+
+  return d;
+}
+
+module.exports.adjustDateByOffset = adjustDateByOffset;
+
 function binaryBuffer(n) {
   var buffer = new Buffer(n);
 
@@ -17,6 +31,37 @@ function binaryBuffer(n) {
 }
 
 module.exports.binaryBuffer = binaryBuffer;
+
+function BinaryStream(size, options) {
+  Readable.call(this, options);
+
+  var buf = new Buffer(size);
+
+  for (var i = 0; i < size; i++) {
+    buf.writeUInt8(i&255, i);
+  }
+
+  this.push(buf);
+  this.push(null);
+}
+
+inherits(BinaryStream, Readable);
+
+BinaryStream.prototype._read = function(size) {};
+
+module.exports.BinaryStream = BinaryStream;
+
+function DeadEndStream(options) {
+  Writable.call(this, options);
+}
+
+inherits(DeadEndStream, Writable);
+
+DeadEndStream.prototype._write = function(chuck, encoding, callback) {
+  callback();
+};
+
+module.exports.DeadEndStream = DeadEndStream;
 
 function WriteHashStream(path, options) {
   fs.WriteStream.call(this, path, options);
