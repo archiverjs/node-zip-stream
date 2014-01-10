@@ -12,7 +12,6 @@ var DeflateRawChecksum = require('../lib/util/DeflateRawChecksum');
 
 var testDateString = 'Jan 03 2013 14:26:38 GMT';
 var testDate = new Date(testDateString);
-var testDateDos = 1109607251;
 var testDateDosUTC = 1109619539;
 
 var testTimezoneOffset = testDate.getTimezoneOffset();
@@ -110,10 +109,6 @@ describe('utils', function() {
 
   describe('dosDateTime(date, utc)', function() {
     it('should convert date into its DOS representation', function() {
-      assert.deepEqual(utils.dosDateTime(testDate), testDateDos);
-    });
-
-    it('should convert date (forcing UTC) into its DOS representation', function() {
       assert.equal(utils.dosDateTime(testDate, true), testDateDosUTC);
     });
   });
