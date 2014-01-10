@@ -1,6 +1,6 @@
 {
   "name": "zip-stream",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "a streaming zip generator.",
   "homepage": "https://github.com/ctalkington/node-zip-stream",
   "author": {
