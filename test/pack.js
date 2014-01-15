@@ -225,6 +225,23 @@ describe('pack', function() {
       archive.finalize();
     });
 
+    it('should support creating an empty zip', function(done) {
+      var archive = new packer({
+        forceUTC: true
+      });
+
+      var testStream = new WriteHashStream('tmp/empty.zip');
+
+      testStream.on('close', function() {
+        assert.equal(testStream.digest, 'b04f3ee8f5e43fa3b162981b50bb72fe1acabb33');
+        done();
+      });
+
+      archive.pipe(testStream);
+
+      archive.finalize();
+    });
+
   });
 
 });
