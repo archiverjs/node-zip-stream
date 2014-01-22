@@ -28,7 +28,7 @@
     "test": "mocha --reporter dot"
   },
   "dependencies": {
-    "readable-stream": "~1.1.9",
+    "readable-stream": "~1.0.24",
     "lodash.defaults": "~2.4.1"
   },
   "devDependencies": {
