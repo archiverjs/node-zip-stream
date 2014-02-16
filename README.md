@@ -27,7 +27,7 @@ archive.on('error', function(err) {
 // pipe archive where you want it (ie fs, http, etc)
 // listen to the destination's end, close, or finish event
 
-archive.entry('string contents', { name: 'string.txt' }, function(err) {
+archive.entry('string contents', { name: 'string.txt' }, function(err, file) {
   if (err) throw err;
 
   archive.finalize();
@@ -36,7 +36,7 @@ archive.entry('string contents', { name: 'string.txt' }, function(err) {
 
 ### Instance API
 
-#### entry(input, data, callback(err))
+#### entry(input, data, callback(err, file))
 
 Appends an input source (text string, buffer, or stream) to the instance. When the instance has received, processed, and emitted the input, the callback is fired.
 
