@@ -1,3 +1,8 @@
+v0.2.0:
+  date: 2014-02-15
+  changes:
+    - support global store option.
+    - pass file data as second argument to callback.
 v0.1.4:
   date: 2014-02-07
   changes:
