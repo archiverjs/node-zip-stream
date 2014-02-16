@@ -1,3 +1,7 @@
+v0.2.1:
+  date: 2014-02-16
+  changes:
+    - simplify error callback data passing.
 v0.2.0:
   date: 2014-02-15
   changes:
