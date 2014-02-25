@@ -2,6 +2,8 @@
 
 zip-stream is a streaming zip generator. It was built to be a successor to [zipstream](https://npmjs.org/package/zipstream). Dependencies are kept to a minimum through the use of many of node's built-in modules including the use of zlib module for compression.
 
+[![NPM](https://nodei.co/npm/zip-stream.png)](https://nodei.co/npm/zip-stream/)
+
 ### Install
 
 ```bash
