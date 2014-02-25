@@ -88,6 +88,23 @@ Sets the entry comment.
 
 Sets the entry permissions. (experimental)
 
+## Debugging
+
+This library makes use of the [debug](https://npmjs.org/package/debug) debug with a namespace of `zip-stream` which can be triggered by setting `DEBUG` in your environment like so:
+
+```shell
+# unix
+DEBUG=zip-stream:* node script
+
+# windows (powershell)
+$env:DEBUG="zip-stream:*"
+node script
+
+# windows (cmd)
+SET DEBUG="zip-stream:*"
+node script
+```
+
 ## Things of Interest
 
 - [Changelog](https://github.com/ctalkington/node-zip-stream/releases)

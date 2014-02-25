@@ -29,7 +29,8 @@
   },
   "dependencies": {
     "readable-stream": "~1.0.24",
-    "lodash.defaults": "~2.4.1"
+    "lodash.defaults": "~2.4.1",
+    "debug": "~0.7.4"
   },
   "devDependencies": {
     "chai": "~1.8.1",
