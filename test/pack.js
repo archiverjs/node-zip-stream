@@ -6,6 +6,7 @@ var mkdir = require('mkdirp');
 
 var helpers = require('./helpers');
 var binaryBuffer = helpers.binaryBuffer;
+var fileBuffer = helpers.fileBuffer;
 var WriteHashStream = helpers.WriteHashStream;
 
 var packer = require('../lib/zip-stream.js');

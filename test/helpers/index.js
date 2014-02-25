@@ -63,6 +63,12 @@ DeadEndStream.prototype._write = function(chuck, encoding, callback) {
 
 module.exports.DeadEndStream = DeadEndStream;
 
+function fileBuffer(filepath) {
+  return fs.readFileSync(filepath);
+}
+
+module.exports.fileBuffer = fileBuffer;
+
 function WriteHashStream(path, options) {
   fs.WriteStream.call(this, path, options);
 
