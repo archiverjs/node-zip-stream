@@ -243,6 +243,42 @@ describe('pack', function() {
       archive.finalize();
     });
 
+    it('should support compressing images for Buffer sources', function(done) {
+      var archive = new packer({
+        forceUTC: true
+      });
+
+      var testStream = new WriteHashStream('tmp/buffer-image.zip');
+
+      testStream.on('close', function() {
+        assert.equal(testStream.digest, '318b485627b9abf7cbd411e43985fc8d7358d151');
+        done();
+      });
+
+      archive.pipe(testStream);
+
+      archive.entry(fileBuffer('test/fixtures/image.png'), { name: 'image.png', date: testDate });
+      archive.finalize();
+    });
+
+    it('should support compressing images for Stream sources', function(done) {
+      var archive = new packer({
+        forceUTC: true
+      });
+
+      var testStream = new WriteHashStream('tmp/stream-image.zip');
+
+      testStream.on('close', function() {
+        assert.equal(testStream.digest, '318b485627b9abf7cbd411e43985fc8d7358d151');
+        done();
+      });
+
+      archive.pipe(testStream);
+
+      archive.entry(fs.createReadStream('test/fixtures/image.png'), { name: 'image.png', date: testDate });
+      archive.finalize();
+    });
+
   });
 
 });
