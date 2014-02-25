@@ -90,7 +90,7 @@ Sets the entry permissions. (experimental)
 
 ## Debugging
 
-This library makes use of the [debug](https://npmjs.org/package/debug) with a namespace of `zip-stream` which can be triggered by setting `DEBUG` in your environment like so:
+This library makes use of the [debug](https://npmjs.org/package/debug) module with a namespace of `zip-stream` which can be triggered by setting `DEBUG` in your environment like so:
 
 ```shell
 # unix
