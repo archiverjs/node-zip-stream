@@ -111,6 +111,22 @@ describe('utils', function() {
     it('should convert date into its DOS representation', function() {
       assert.equal(utils.dosDateTime(testDate, true), testDateDosUTC);
     });
+
+    it('should handle 2043-12-31 23:59:59', function () {
+      assert.equal(utils.dosDateTime(new Date(Date.UTC(2043, 11, 31, 23, 59, 59)), true), 0x7f9fbf7d);
+    });
+
+    it('should handle overflow', function () {
+      assert.equal(utils.dosDateTime(new Date(Date.UTC(2044, 0, 1, 0, 0, 0, 0)), true), 0x7f9fbf7d);
+    });
+
+    it('should handle 1980-1-1 00:00:00', function () {
+      assert.equal(utils.dosDateTime(new Date(Date.UTC(1980, 0, 1)), true), parseInt('1000010000000000000000', 2));
+    });
+
+    it('should handle underflow', function () {
+      assert.equal(utils.dosDateTime(new Date(Date.UTC(1979, 11, 31, 23, 59, 59, 999)), true), parseInt('1000010000000000000000', 2));
+    });
   });
 
   describe('isStream(source)', function() {
