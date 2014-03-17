@@ -216,7 +216,7 @@ describe('pack', function() {
       var testStream = new WriteHashStream('tmp/filemode.zip');
 
       testStream.on('close', function() {
-        assert.equal(testStream.digest, '41da8a79fb25b46b594105eb8618b6ebb0ed3135');
+        assert.equal(testStream.digest, '54bfe1aea661015d41ef2a8a4adc574344236b52');
         done();
       });
 
