@@ -62,9 +62,9 @@ describe('utils', function() {
 
     describe('#update(data)', function() {
       it('should update CRC32 based on data', function() {
-        var actual = utils.crc32('testing checksum').update('testing checksum update');
+        var actual = utils.crc32().update('testing checksum update');
 
-        assert.equal(actual.crc, -1910787609);
+        assert.equal(actual.crc, -2042121681);
       });
     });
 
