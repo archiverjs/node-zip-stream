@@ -25,7 +25,7 @@ describe('utils', function() {
       var deadend = new DeadEndStream();
 
       checksum.on('end', function() {
-        assert.equal(checksum.digest, -270675091);
+        assert.equal(checksum.digest, 4024292205);
 
         done();
       });
@@ -56,23 +56,31 @@ describe('utils', function() {
       it('should initialize CRC32 instance based on data', function() {
         var actual = utils.crc32('testing checksum');
 
-        assert.equal(actual.crc, 323269802);
+        assert.equal(actual.crc, 943146542);
       });
     });
 
     describe('#update(data)', function() {
       it('should update CRC32 based on data', function() {
-        var actual = utils.crc32().update('testing checksum');
+        var actual = utils.crc32('testing checksum').update('testing checksum update');
 
-        assert.equal(actual.crc, 323269802);
+        assert.equal(actual.crc, -1910787609);
       });
     });
 
     describe('#digest()', function() {
       it('should return digest of CRC32', function() {
-        var actual = utils.crc32().update('testing checksum').digest();
+        var actual = utils.crc32('testing checksum').digest();
 
-        assert.equal(actual, -323269803);
+        assert.equal(actual, 3351820753);
+      });
+    });
+
+    describe('#hex()', function() {
+      it('should return hex digest of CRC32', function() {
+        var actual = utils.crc32('testing checksum').hex();
+
+        assert.equal(actual, 'C7C8B9D1');
       });
     });
 
