@@ -7,7 +7,7 @@ var Readable = require('stream').Readable || require('readable-stream').Readable
 var Writable = require('stream').Writable || require('readable-stream').Writable;
 
 function adjustDateByOffset(d, offset) {
-  d = d instanceof Date || new Date();
+  d = (d instanceof Date) ? d : new Date();
 
   if (offset >= 1) {
     d.setMinutes(d.getMinutes() - offset);

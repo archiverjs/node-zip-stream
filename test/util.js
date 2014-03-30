@@ -13,8 +13,13 @@ var DeflateRawChecksum = require('../lib/util/DeflateRawChecksum');
 var testDateString = 'Jan 03 2013 14:26:38 GMT';
 var testDate = new Date(testDateString);
 var testDateDosUTC = 1109619539;
-
 var testTimezoneOffset = testDate.getTimezoneOffset();
+
+var testDateOverflow = new Date('Jan 1 2044 00:00:00 GMT');
+var testDateOverflowDosUTC = 2141175677;
+
+var testDateUnderflow = new Date('Dec 30 1979 23:59:58 GMT');
+var testDateUnderflowDosUTC = 2162688;
 
 describe('utils', function() {
 
@@ -86,6 +91,14 @@ describe('utils', function() {
 
   });
 
+  describe('convertDateTimeDos(input)', function() {
+    it('should convert DOS input into an instance of Date', function() {
+      var actual = helpers.adjustDateByOffset(utils.convertDateTimeDos(testDateDosUTC), testTimezoneOffset);
+
+      assert.deepEqual(actual, testDate);
+    });
+  });
+
   describe('dateify(dateish)', function() {
     it('should return an instance of Date', function() {
       assert.instanceOf(utils.dateify(testDate), Date);
@@ -118,6 +131,14 @@ describe('utils', function() {
   describe('dosDateTime(date, utc)', function() {
     it('should convert date into its DOS representation', function() {
       assert.equal(utils.dosDateTime(testDate, true), testDateDosUTC);
+    });
+
+    it('should handle int underflow', function () {
+      assert.equal(utils.dosDateTime(testDateUnderflow, true), testDateUnderflowDosUTC);
+    });
+
+    it('should handle int overflow', function () {
+      assert.equal(utils.dosDateTime(testDateOverflow, true), testDateOverflowDosUTC);
     });
   });
 

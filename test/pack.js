@@ -14,6 +14,9 @@ var packer = require('../lib/zip-stream.js');
 var testDate = new Date('Jan 03 2013 14:26:38 GMT');
 var testDate2 = new Date('Feb 10 2013 10:24:42 GMT');
 
+var testDateOverflow = new Date('Jan 1 2044 00:00:00 GMT');
+var testDateUnderflow = new Date('Dec 30 1979 23:59:58 GMT');
+
 describe('pack', function() {
   before(function() {
     mkdir.sync('tmp');
@@ -277,6 +280,29 @@ describe('pack', function() {
 
       archive.entry(fs.createReadStream('test/fixtures/image.png'), { name: 'image.png', date: testDate });
       archive.finalize();
+    });
+
+    it('should support under and overflow of dates', function(done) {
+      var archive = new packer({
+        forceUTC: true
+      });
+
+      var testStream = new WriteHashStream('tmp/date-boundaries.zip');
+
+      testStream.on('close', function() {
+        assert.equal(testStream.digest, '1d8544fa41f54e3f5e68ad8e11a2ee7e6c1f01e4');
+        done();
+      });
+
+      archive.pipe(testStream);
+
+      archive.entry(binaryBuffer(10000), { name: 'date-underflow.txt', date: testDateUnderflow }, function(err) {
+          if (err) throw err;
+          archive.entry(binaryBuffer(10000), { name: 'date-overflow.txt', date: testDateOverflow }, function(err) {
+            if (err) throw err;
+            archive.finalize();
+          });
+      });
     });
 
   });
