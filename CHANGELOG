@@ -1,3 +1,9 @@
+v0.2.3:
+  date: 2014-03-30
+  changes:
+    - crc32: overhaul to ensure consistent output.
+    - headers: refactor external file attributes.
+    - misc other tweaks. see git log.
 v0.2.2:
   date: 2014-02-25
   changes:
