@@ -133,11 +133,11 @@ describe('utils', function() {
       assert.equal(utils.dosDateTime(testDate, true), testDateDosUTC);
     });
 
-    it('should handle int underflow', function () {
+    it('should prevent UInt32 underflow', function () {
       assert.equal(utils.dosDateTime(testDateUnderflow, true), testDateUnderflowDosUTC);
     });
 
-    it('should handle int overflow', function () {
+    it('should prevent UInt32 overflow', function () {
       assert.equal(utils.dosDateTime(testDateOverflow, true), testDateOverflowDosUTC);
     });
   });
