@@ -332,6 +332,25 @@ describe('pack', function() {
       });
     });
 
+    it('should support directory entries', function(done) {
+      var archive = new Packer({
+        forceUTC: true
+      });
+
+      var testStream = new WriteHashStream('tmp/type-directory.zip');
+
+      testStream.on('close', function() {
+        assert.equal(testStream.digest, '8706b64089dfd6406343a1e7329d0a91384aaa74');
+        done();
+      });
+
+      archive.pipe(testStream);
+
+      archive.entry(null, { name: 'directory/', date: testDate });
+
+      archive.finalize();
+    });
+
   });
 
 });

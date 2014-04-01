@@ -72,7 +72,7 @@ Sets the entry name including internal path.
 
 #### type `string`
 
-Sets the entry type. Defaults to `file`. (allowed types to be expanded in future)
+Sets the entry type. Defaults to `file` or `directory` if name ends with trailing slash.
 
 #### date `string|Date`
 
