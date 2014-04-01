@@ -29,7 +29,7 @@ archive.on('error', function(err) {
 // pipe archive where you want it (ie fs, http, etc)
 // listen to the destination's end, close, or finish event
 
-archive.entry('string contents', { name: 'string.txt' }, function(err, file) {
+archive.entry('string contents', { name: 'string.txt' }, function(err, entry) {
   if (err) throw err;
 
   archive.finalize();
@@ -38,7 +38,7 @@ archive.entry('string contents', { name: 'string.txt' }, function(err, file) {
 
 ### Instance API
 
-#### entry(input, data, callback(err, file))
+#### entry(input, data, callback(err, entry))
 
 Appends an input source (text string, buffer, or stream) to the instance. When the instance has received, processed, and emitted the input, the callback is fired.
 
@@ -54,7 +54,7 @@ Sets the zip comment.
 
 #### forceUTC `boolean`
 
-If true, forces the file date and time to UTC. Helps with testing across timezones.
+If true, forces the entry date to UTC. Helps with testing across timezones.
 
 #### store `boolean`
 
