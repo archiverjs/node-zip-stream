@@ -31,8 +31,10 @@ archive.on('error', function(err) {
 
 archive.entry('string contents', { name: 'string.txt' }, function(err, entry) {
   if (err) throw err;
-
-  archive.finalize();
+  archive.entry(null, { name: 'directory/' }, function(err, entry) {
+    if (err) throw err;
+    archive.finalize();
+  });
 });
 ```
 
