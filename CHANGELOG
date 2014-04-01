@@ -1,3 +1,10 @@
+v0.3.0:
+  date: 2014-04-01
+  changes:
+    - initial directory entry support.
+    - normalize null sources to empty buffer.
+    - crc32: replace with buffer-crc32.
+    - util: additional boundaries for dates (GH #6)
 v0.2.3:
   date: 2014-03-30
   changes:
