@@ -196,7 +196,7 @@ describe('pack', function() {
       var testStream = new WriteHashStream('tmp/zerolength.zip');
 
       testStream.on('close', function() {
-        assert.equal(testStream.digest, '61ac99936f7dc99f38fbaa3789050b6b14900e47');
+        assert.equal(testStream.digest, '6ac3baa5e36a6ee0ec2fe06d760243c86645ed16');
         done();
       });
 
