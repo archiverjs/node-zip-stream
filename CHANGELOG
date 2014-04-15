@@ -1,3 +1,7 @@
+v0.3.1:
+  date: 2014-04-15
+  changes:
+    - adjust compression method when source buffer is empty. (GH #7)
 v0.3.0:
   date: 2014-04-01
   changes:
