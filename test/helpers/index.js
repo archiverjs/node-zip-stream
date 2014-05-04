@@ -69,6 +69,14 @@ function fileBuffer(filepath) {
 
 module.exports.fileBuffer = fileBuffer;
 
+function UnBufferedStream() {
+  this.readable = true;
+}
+
+inherits(UnBufferedStream, Stream);
+
+module.exports.UnBufferedStream = UnBufferedStream;
+
 function WriteHashStream(path, options) {
   fs.WriteStream.call(this, path, options);
 
