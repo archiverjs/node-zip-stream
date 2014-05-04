@@ -99,7 +99,7 @@ describe('pack', function() {
       var testStream = new WriteHashStream('tmp/buffer-store.zip');
 
       testStream.on('close', function() {
-        assert.equal(testStream.digest, '7919cdab61f79a3384657f1121deb1892f2f062e');
+        assert.equal(testStream.digest, 'dc19b326088033922e488192defb8dc5cca6ffdd');
         done();
       });
 
@@ -155,7 +155,7 @@ describe('pack', function() {
       var testStream = new WriteHashStream('tmp/store-level0.zip');
 
       testStream.on('close', function() {
-        assert.equal(testStream.digest, '7919cdab61f79a3384657f1121deb1892f2f062e');
+        assert.equal(testStream.digest, 'dc19b326088033922e488192defb8dc5cca6ffdd');
         done();
       });
 
@@ -196,7 +196,7 @@ describe('pack', function() {
       var testStream = new WriteHashStream('tmp/zerolength.zip');
 
       testStream.on('close', function() {
-        assert.equal(testStream.digest, '6ac3baa5e36a6ee0ec2fe06d760243c86645ed16');
+        assert.equal(testStream.digest, '4ecd1e32661437f8e62492d6d0dcc845e8ff0fb6');
         done();
       });
 
@@ -317,7 +317,7 @@ describe('pack', function() {
       var testStream = new WriteHashStream('tmp/buffer-overflow.zip');
 
       testStream.on('close', function() {
-        assert.equal(testStream.digest, '8d5cccddfdd0fe0f31ac435005d1bdc774264f51');
+        assert.equal(testStream.digest, '2397e129ae3c9398cfe63ed92d007821ad418d0c');
         done();
       });
 
@@ -340,7 +340,7 @@ describe('pack', function() {
       var testStream = new WriteHashStream('tmp/type-directory.zip');
 
       testStream.on('close', function() {
-        assert.equal(testStream.digest, '8706b64089dfd6406343a1e7329d0a91384aaa74');
+        assert.equal(testStream.digest, 'ce375e4f7db818cab9f9dba79cd89002459d9fe6');
         done();
       });
 
