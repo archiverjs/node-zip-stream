@@ -13,7 +13,6 @@ var DeadEndStream = helpers.DeadEndStream;
 var UnBufferedStream = helpers.UnBufferedStream;
 
 var utils = require('../lib/util');
-var ChecksumStream = require('../lib/util/ChecksumStream');
 var DeflateRawChecksum = require('../lib/util/DeflateRawChecksum');
 
 var testDateString = 'Jan 03 2013 14:26:38 GMT';
@@ -28,38 +27,6 @@ var testDateUnderflow = new Date('Dec 30 1979 23:59:58 GMT');
 var testDateUnderflowDosUTC = 2162688;
 
 describe('utils', function() {
-
-  describe('ChecksumStream', function() {
-    it('should checksum data while transforming data', function(done) {
-      var binary = new BinaryStream(20000);
-      var checksum = new ChecksumStream();
-      var deadend = new DeadEndStream();
-
-      checksum.on('end', function() {
-        assert.equal(checksum.digest, 4024292205);
-
-        done();
-      });
-
-      checksum.pipe(deadend);
-      binary.pipe(checksum);
-    });
-
-    it('should calculate data size while transforming data', function(done) {
-      var binary = new BinaryStream(20000);
-      var checksum = new ChecksumStream();
-      var deadend = new DeadEndStream();
-
-      checksum.on('end', function() {
-        assert.equal(checksum.rawSize, 20000);
-
-        done();
-      });
-
-      checksum.pipe(deadend);
-      binary.pipe(checksum);
-    });
-  });
 
   describe('convertDateTimeDos(input)', function() {
     it('should convert DOS input into an instance of Date', function() {

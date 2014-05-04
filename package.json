@@ -28,6 +28,7 @@
     "test": "mocha --reporter dot"
   },
   "dependencies": {
+    "crc32-stream": "~0.2.0",
     "readable-stream": "~1.0.24",
     "lodash.defaults": "~2.4.1",
     "buffer-crc32": "~0.2.1",
