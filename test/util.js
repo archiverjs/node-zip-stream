@@ -97,6 +97,21 @@ describe('utils', function() {
     });
   });
 
+  describe('normalizeInputSource(source)', function() {
+    it('should normalize strings to an instanceOf Buffer', function() {
+      var normalized = utils.normalizeInputSource('some string');
+
+      assert.instanceOf(normalized, Buffer);
+    });
+
+    it('should normalize older unbuffered streams', function() {
+      var noBufferStream = new UnBufferedStream();
+      var normalized = utils.normalizeInputSource(noBufferStream);
+
+      assert.instanceOf(normalized, PassThrough);
+    });
+  });
+
   describe('sanitizePath(filepath)', function() {
     it('should sanitize filepath', function() {
       assert.equal(utils.sanitizePath('\\this/path//file.txt'), 'this/path/file.txt');
