@@ -1,3 +1,10 @@
+v0.3.2:
+  date: 2014-05-03
+  changes:
+    - replace ChecksumStream with crc32-stream.
+    - always use readable-stream for consistency.
+    - restrict files published to npm.
+    - other misc cleanup and tweaks. see commit log.
 v0.3.1:
   date: 2014-04-15
   changes:

@@ -1,7 +1,7 @@
 {
   "name": "zip-stream",
-  "version": "0.3.1",
-  "description": "a streaming zip generator.",
+  "version": "0.3.2",
+  "description": "a streaming zip archive generator.",
   "homepage": "https://github.com/ctalkington/node-zip-stream",
   "author": {
     "name": "Chris Talkington",

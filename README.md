@@ -1,6 +1,6 @@
-# zip-stream v0.3.1 [![Build Status](https://travis-ci.org/ctalkington/node-zip-stream.svg?branch=master)](https://travis-ci.org/ctalkington/node-zip-stream)
+# zip-stream v0.3.2 [![Build Status](https://travis-ci.org/ctalkington/node-zip-stream.svg?branch=master)](https://travis-ci.org/ctalkington/node-zip-stream)
 
-zip-stream is a streaming zip generator. It was built to be a successor to [zipstream](https://npmjs.org/package/zipstream). Dependencies are kept to a minimum through the use of many of node's built-in modules including the use of zlib module for compression.
+zip-stream is a streaming zip archive generator. It was built to be a successor to [zipstream](https://npmjs.org/package/zipstream). Dependencies are kept to a minimum through the use of many of node's built-in modules including the use of zlib module for compression.
 
 [![NPM](https://nodei.co/npm/zip-stream.png)](https://nodei.co/npm/zip-stream/)
 
@@ -40,7 +40,7 @@ archive.entry('string contents', { name: 'string.txt' }, function(err, entry) {
 
 ### Instance API
 
-#### entry(input, data, callback(err, entry))
+#### entry(input, data, callback(err, data))
 
 Appends an input source (text string, buffer, or stream) to the instance. When the instance has received, processed, and emitted the input, the callback is fired.
 
@@ -111,7 +111,7 @@ node script
 
 ## Things of Interest
 
-- [Changelog](https://github.com/ctalkington/node-zip-stream/releases)
+- [Releases](https://github.com/ctalkington/node-zip-stream/releases)
 - [Contributing](https://github.com/ctalkington/node-zip-stream/blob/master/CONTRIBUTING.md)
 - [MIT License](https://github.com/ctalkington/node-zip-stream/blob/master/LICENSE-MIT)
 
