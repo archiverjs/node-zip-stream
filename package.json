@@ -21,6 +21,10 @@
     }
   ],
   "main": "lib/zip-stream.js",
+  "files": [
+    "lib",
+    "LICENSE-MIT"
+  ],
   "engines": {
     "node": ">= 0.8.0"
   },
