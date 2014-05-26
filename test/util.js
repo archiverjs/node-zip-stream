@@ -13,7 +13,6 @@ var DeadEndStream = helpers.DeadEndStream;
 var UnBufferedStream = helpers.UnBufferedStream;
 
 var utils = require('../lib/util');
-var DeflateRawChecksum = require('../lib/util/DeflateRawChecksum');
 
 var testDateString = 'Jan 03 2013 14:26:38 GMT';
 var testDate = new Date(testDateString);
