@@ -51,19 +51,6 @@ describe('utils', function() {
     });
   });
 
-  describe('defaults(object, source, guard)', function() {
-    it('should default when object key is missing', function() {
-      var actual = utils.defaults({ value1: true }, {
-        value2: true
-      });
-
-      assert.deepEqual(actual, {
-        value1: true,
-        value2: true
-      });
-    });
-  });
-
   describe('dosDateTime(date, utc)', function() {
     it('should convert date into its DOS representation', function() {
       assert.equal(utils.dosDateTime(testDate, true), testDateDosUTC);
