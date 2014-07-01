@@ -36,7 +36,7 @@
     "crc32-stream": "~0.2.0",
     "debug": "~1.0.2",
     "deflate-crc32-stream": "~0.1.0",
-    "lodash.defaults": "~2.4.1",
+    "lodash": "~2.4.1",
     "readable-stream": "~1.0.26"
   },
   "devDependencies": {
