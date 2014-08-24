@@ -35,20 +35,24 @@ archive.entry('string contents', { name: 'string.txt' }, function(err, entry) {
   if (err) throw err;
   archive.entry(null, { name: 'directory/' }, function(err, entry) {
     if (err) throw err;
-    archive.finalize();
+    archive.finish();
   });
 });
 ```
 
 ### Instance API
 
+#### getBytesWritten()
+
+Returns the current number of bytes written to this stream.
+
 #### entry(input, data, callback(err, data))
 
 Appends an input source (text string, buffer, or stream) to the instance. When the instance has received, processed, and emitted the input, the callback is fired.
 
-#### finalize()
+#### finish()
 
-Finalizes the instance. You should listen to the destination stream's `end`/`close`/`finish` event to know when all output has been safely consumed.
+Finalizes the instance. You should listen to the destination stream's `end`/`close`/`finish` event to know when all output has been safely consumed. (aliased to `finalize` for back-compat)
 
 ### Instance Options
 
