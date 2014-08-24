@@ -1,8 +1,10 @@
 # zip-stream v0.4.0-alpha [![Build Status](https://travis-ci.org/ctalkington/node-zip-stream.svg?branch=master)](https://travis-ci.org/ctalkington/node-zip-stream)
 
-zip-stream is a streaming zip archive generator built using the `ZipArchiveOutputStream` prototype found in the [compress-commons](https://www.npmjs.org/package/compress-commons) project.
+zip-stream is a streaming zip archive generator based on the `ZipArchiveOutputStream` prototype found in the [compress-commons](https://www.npmjs.org/package/compress-commons) project.
 
-It was originally built to be a successor to [zipstream](https://npmjs.org/package/zipstream).
+It was originally created to be a successor to [zipstream](https://npmjs.org/package/zipstream).
+
+[![NPM](https://nodei.co/npm/zip-stream.png)](https://nodei.co/npm/zip-stream/)
 
 ### Install
 
