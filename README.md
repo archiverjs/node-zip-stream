@@ -90,24 +90,7 @@ Sets the entry comment.
 
 #### mode `number`
 
-Sets the entry permissions. (experimental)
-
-## Debugging
-
-This library makes use of the [debug](https://npmjs.org/package/debug) module with a namespace of `zip-stream` which can be triggered by setting `DEBUG` in your environment like so:
-
-```shell
-# unix
-DEBUG=zip-stream:* node script
-
-# windows (powershell)
-$env:DEBUG="zip-stream:*"
-node script
-
-# windows (cmd)
-SET DEBUG="zip-stream:*"
-node script
-```
+Sets the entry permissions.
 
 ## Things of Interest
 
