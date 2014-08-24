@@ -1,4 +1,4 @@
-# zip-stream v0.4.0 [![Build Status](https://travis-ci.org/ctalkington/node-zip-stream.svg?branch=master)](https://travis-ci.org/ctalkington/node-zip-stream)
+# zip-stream v0.4.1 [![Build Status](https://travis-ci.org/ctalkington/node-zip-stream.svg?branch=master)](https://travis-ci.org/ctalkington/node-zip-stream)
 
 zip-stream is a streaming zip archive generator based on the `ZipArchiveOutputStream` prototype found in the [compress-commons](https://www.npmjs.org/package/compress-commons) project.
 
@@ -52,7 +52,7 @@ Appends an input source (text string, buffer, or stream) to the instance. When t
 
 #### finish()
 
-Finalizes the instance. You should listen to the destination stream's `end`/`close`/`finish` event to know when all output has been safely consumed. (aliased to `finalize` for back-compat)
+Finalizes the instance. You should listen to the destination stream's `end`/`close`/`finish` event to know when all output has been safely consumed. (`finalize` is aliased for back-compat)
 
 ### Instance Options
 
