@@ -27,9 +27,7 @@ describe('pack', function() {
   describe('#entry', function() {
 
     it('should append Buffer sources', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/buffer.zip');
 
@@ -44,9 +42,7 @@ describe('pack', function() {
     });
 
     it('should append Stream sources', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/stream.zip');
 
@@ -61,9 +57,7 @@ describe('pack', function() {
     });
 
     it('should append multiple sources', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/multiple.zip');
 
@@ -89,9 +83,7 @@ describe('pack', function() {
     });
 
     it('should support STORE for Buffer sources', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/buffer-store.zip');
 
@@ -106,9 +98,7 @@ describe('pack', function() {
     });
 
     it('should support STORE for Stream sources', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/stream-store.zip');
 
@@ -159,9 +149,7 @@ describe('pack', function() {
     });
 
     it('should properly handle utf8 encoded characters in file names and comments', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/accentedchars-filenames.zip');
 
@@ -181,9 +169,7 @@ describe('pack', function() {
     });
 
     it('should append zero length sources', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/zerolength.zip');
 
@@ -206,9 +192,7 @@ describe('pack', function() {
     });
 
     it('should support setting file mode (permissions)', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/filemode.zip');
 
@@ -223,9 +207,7 @@ describe('pack', function() {
     });
 
     it('should support creating an empty zip', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/empty.zip');
 
@@ -239,9 +221,7 @@ describe('pack', function() {
     });
 
     it('should support compressing images for Buffer sources', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/buffer-image.zip');
 
@@ -256,9 +236,7 @@ describe('pack', function() {
     });
 
     it('should support compressing images for Stream sources', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/stream-image.zip');
 
@@ -273,9 +251,7 @@ describe('pack', function() {
     });
 
     it('should prevent UInt32 under/overflow of dates', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/date-boundaries.zip');
 
@@ -318,9 +294,7 @@ describe('pack', function() {
     });
 
     it('should support directory entries', function(done) {
-      var archive = new Packer({
-        forceUTC: true
-      });
+      var archive = new Packer();
 
       var testStream = new WriteHashStream('tmp/type-directory.zip');
 
