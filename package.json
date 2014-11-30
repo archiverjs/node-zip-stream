@@ -32,13 +32,13 @@
     "test": "mocha --reporter dot"
   },
   "dependencies": {
-    "compress-commons": "~0.1.0",
+    "compress-commons": "~0.2.0",
     "lodash": "~2.4.1",
     "readable-stream": "~1.0.26"
   },
   "devDependencies": {
-    "chai": "~1.9.1",
-    "mocha": "~1.18.2",
+    "chai": "~1.10.0",
+    "mocha": "~2.0.1",
     "rimraf": "~2.2.8",
     "mkdirp": "~0.5.0"
   },
