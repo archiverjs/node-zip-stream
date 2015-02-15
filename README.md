@@ -1,4 +1,4 @@
-# zip-stream v0.5.0 [![Build Status](https://travis-ci.org/ctalkington/node-zip-stream.svg?branch=master)](https://travis-ci.org/ctalkington/node-zip-stream)
+# zip-stream v0.5.0 [![Build Status](https://travis-ci.org/archiverjs/node-zip-stream.svg?branch=master)](https://travis-ci.org/archiverjs/node-zip-stream)
 
 zip-stream is a streaming zip archive generator based on the `ZipArchiveOutputStream` prototype found in the [compress-commons](https://www.npmjs.org/package/compress-commons) project.
 
@@ -12,7 +12,7 @@ It was originally created to be a successor to [zipstream](https://npmjs.org/pac
 npm install zip-stream --save
 ```
 
-You can also use `npm install https://github.com/ctalkington/node-zip-stream/archive/master.tar.gz` to test upcoming versions.
+You can also use `npm install https://github.com/archiverjs/node-zip-stream/archive/master.tar.gz` to test upcoming versions.
 
 ### Usage
 
@@ -96,9 +96,9 @@ Sets the entry permissions.
 
 ## Things of Interest
 
-- [Releases](https://github.com/ctalkington/node-zip-stream/releases)
-- [Contributing](https://github.com/ctalkington/node-zip-stream/blob/master/CONTRIBUTING.md)
-- [MIT License](https://github.com/ctalkington/node-zip-stream/blob/master/LICENSE-MIT)
+- [Releases](https://github.com/archiverjs/node-zip-stream/releases)
+- [Contributing](https://github.com/archiverjs/node-zip-stream/blob/master/CONTRIBUTING.md)
+- [MIT License](https://github.com/archiverjs/node-zip-stream/blob/master/LICENSE-MIT)
 
 ## Credits
 
