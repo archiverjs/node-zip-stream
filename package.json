@@ -47,5 +47,8 @@
     "stream",
     "zip-stream",
     "zip"
-  ]
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  }
 }
