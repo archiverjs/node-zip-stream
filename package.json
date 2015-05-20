@@ -14,12 +14,7 @@
   "bugs": {
     "url": "https://github.com/archiverjs/node-zip-stream/issues"
   },
-  "licenses": [
-    {
-      "type": "MIT",
-      "url": "https://github.com/archiverjs/node-zip-stream/blob/master/LICENSE-MIT"
-    }
-  ],
+  "license": "MIT",
   "main": "lib/zip-stream.js",
   "files": [
     "lib",
