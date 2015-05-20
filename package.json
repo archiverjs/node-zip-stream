@@ -1,6 +1,6 @@
 {
   "name": "zip-stream",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "a streaming zip archive generator.",
   "homepage": "https://github.com/archiverjs/node-zip-stream",
   "author": {
@@ -17,8 +17,7 @@
   "license": "MIT",
   "main": "lib/zip-stream.js",
   "files": [
-    "lib",
-    "LICENSE-MIT"
+    "lib"
   ],
   "engines": {
     "node": ">= 0.8.0"
