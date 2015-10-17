@@ -1,6 +1,6 @@
 {
   "name": "zip-stream",
-  "version": "0.5.2",
+  "version": "0.6.0",
   "description": "a streaming zip archive generator.",
   "homepage": "https://github.com/archiverjs/node-zip-stream",
   "author": {
@@ -20,7 +20,7 @@
     "lib"
   ],
   "engines": {
-    "node": ">= 0.8.0"
+    "node": ">= 0.10.0"
   },
   "scripts": {
     "test": "mocha --reporter dot"
