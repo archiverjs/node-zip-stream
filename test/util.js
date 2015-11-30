@@ -119,10 +119,4 @@ describe('utils', function() {
     });
   });
 
-  describe('unixifyPath(filepath)', function() {
-    it('should unixify filepath', function() {
-      assert.equal(utils.unixifyPath('this\\path\\file.txt'), 'this/path/file.txt');
-    });
-  });
-
 });
