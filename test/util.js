@@ -96,6 +96,12 @@ describe('utils', function() {
     });
   });
 
+  describe('joinPath(filepath)', function() {
+    it.skip('should be tested', function() {
+
+    })
+  });
+
   describe('normalizeInputSource(source)', function() {
     it('should normalize strings to an instanceOf Buffer', function() {
       var normalized = utils.normalizeInputSource('some string');
@@ -115,6 +121,9 @@ describe('utils', function() {
     it('should sanitize filepath', function() {
       assert.equal(utils.sanitizePath('\\this/path//file.txt'), 'this/path/file.txt');
       assert.equal(utils.sanitizePath('/this/path/file.txt'), 'this/path/file.txt');
+      assert.equal(utils.sanitizePath('./this/path/file.txt'), './this/path/file.txt');
+      assert.equal(utils.sanitizePath('../this/path/file.txt'), 'this/path/file.txt');
+
       assert.equal(utils.sanitizePath('c:\\this\\path\\file.txt'), 'this/path/file.txt');
       assert.equal(utils.sanitizePath('\\\\server\\share\\'), 'server/share/');
     });
