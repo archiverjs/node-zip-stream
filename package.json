@@ -17,8 +17,7 @@
   "license": "MIT",
   "main": "index.js",
   "files": [
-    "index.js",
-    "lib"
+    "index.js"
   ],
   "engines": {
     "node": ">= 0.10.0"
