@@ -9,7 +9,7 @@ var binaryBuffer = helpers.binaryBuffer;
 var fileBuffer = helpers.fileBuffer;
 var WriteHashStream = helpers.WriteHashStream;
 
-var Packer = require('../lib/zip-stream');
+var Packer = require('../index.js');
 
 var testBuffer = binaryBuffer(1024 * 16);
 

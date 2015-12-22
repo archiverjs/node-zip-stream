@@ -15,8 +15,9 @@
     "url": "https://github.com/archiverjs/node-zip-stream/issues"
   },
   "license": "MIT",
-  "main": "lib/zip-stream.js",
+  "main": "index.js",
   "files": [
+    "index.js",
     "lib"
   ],
   "engines": {
