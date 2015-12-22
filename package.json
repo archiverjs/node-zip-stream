@@ -24,7 +24,8 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "test": "mocha --reporter dot"
+    "test": "mocha --reporter dot",
+    "gendocs": "jsdoc -c jsdoc.json readme.md"
   },
   "dependencies": {
     "archiver-utils": "~0.3.0",
@@ -34,6 +35,8 @@
   },
   "devDependencies": {
     "chai": "~3.4.0",
+    "jsdoc": "~3.4.0",
+    "minami": "~1.1.0",
     "mocha": "~2.3.3",
     "rimraf": "~2.4.3",
     "mkdirp": "~0.5.0"

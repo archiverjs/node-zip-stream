@@ -1,0 +1,15 @@
+{
+  "source": {
+    "include": ["readme.md", "index.js"],
+    "includePattern": ".js$",
+    "excludePattern": "(node_modules/)"
+  },
+  "opts": {
+    "recurse": true,
+    "destination": "../archiver-website/zip-stream/",
+    "template": "node_modules/minami"
+  },
+  "plugins": [
+    "plugins/markdown"
+  ]
+}

@@ -1,9 +1,9 @@
 /**
- * node-zip-stream
+ * ZipStream
  *
- * Copyright (c) 2014 Chris Talkington, contributors.
- * Licensed under the MIT license.
- * https://github.com/archiverjs/node-zip-stream/blob/master/LICENSE-MIT
+ * @ignore
+ * @license [MIT]{@link https://github.com/archiverjs/node-zip-stream/blob/master/LICENSE}
+ * @copyright (c) 2014 Chris Talkington, contributors.
  */
 var inherits = require('util').inherits;
 
@@ -12,6 +12,15 @@ var ZipArchiveEntry = require('compress-commons').ZipArchiveEntry;
 
 var util = require('archiver-utils');
 
+/**
+ * @constructor
+ * @extends external:ZipArchiveOutputStream
+ * @param {Object} [options]
+ * @param {String} [options.comment] Sets the zip archive comment.
+ * @param {Boolean} [options.store=false] Sets the compression method to STORE.
+ * @param {Object} [options.zlib] Passed to [zlib]{@link https://nodejs.org/api/zlib.html#zlib_class_options}
+ * to control compression.
+ */
 var ZipStream = module.exports = function(options) {
   if (!(this instanceof ZipStream)) {
     return new ZipStream(options);
@@ -38,6 +47,13 @@ var ZipStream = module.exports = function(options) {
 
 inherits(ZipStream, ZipArchiveOutputStream);
 
+/**
+ * Normalizes entry data with fallbacks for key properties.
+ *
+ * @private
+ * @param  {Object} data
+ * @return {Object}
+ */
 ZipStream.prototype._normalizeFileData = function(data) {
   data = util.defaults(data, {
     type: 'file',
@@ -70,6 +86,21 @@ ZipStream.prototype._normalizeFileData = function(data) {
   return data;
 };
 
+/**
+ * Appends an entry given an input source (text string, buffer, or stream).
+ *
+ * @param  {(Buffer|Stream|String)} source The input source.
+ * @param  {Object} data
+ * @param  {String} data.name Sets the entry name including internal path.
+ * @param  {String} [data.comment] Sets the entry comment.
+ * @param  {(String|Date)} [data.date=NOW()] Sets the entry date.
+ * @param  {Number} [data.mode=D:0755/F:0644] Sets the entry permissions.
+ * @param  {Boolean} [data.store=options.store] Sets the compression method to STORE.
+ * @param  {String} [data.type=file] Sets the entry type. Defaults to `directory`
+ * if name ends with trailing slash.
+ * @param  {Function} callback
+ * @return this
+ */
 ZipStream.prototype.entry = function(source, data, callback) {
   if (typeof callback !== 'function') {
     callback = this._emitErrorCallback.bind(this);
@@ -105,6 +136,24 @@ ZipStream.prototype.entry = function(source, data, callback) {
   return ZipArchiveOutputStream.prototype.entry.call(this, entry, source, callback);
 };
 
+/**
+ * Finalizes the instance and prevents further appending to the archive
+ * structure (queue will continue til drained).
+ *
+ * @return void
+ */
 ZipStream.prototype.finalize = function() {
   this.finish();
 };
+
+/**
+ * Returns the current number of bytes written to this stream.
+ * @function ZipStream#getBytesWritten
+ * @returns {Number}
+ */
+
+/**
+ * Compress Commons ZipArchiveOutputStream
+ * @external ZipArchiveOutputStream
+ * @see {@link https://github.com/archiverjs/node-compress-commons}
+ */
