@@ -27,8 +27,8 @@
     "gendocs": "jsdoc -c jsdoc.json readme.md"
   },
   "dependencies": {
-    "archiver-utils": "^0.3.0",
-    "compress-commons": "^0.4.0",
+    "archiver-utils": "^1.0.0",
+    "compress-commons": "^1.0.0",
     "lodash": "^4.8.0",
     "readable-stream": "^2.0.0"
   },
