@@ -40,12 +40,6 @@ archive.entry('string contents', { name: 'string.txt' }, function(err, entry) {
 });
 ```
 
-## Things of Interest
-
-- [Releases](https://github.com/archiverjs/node-zip-stream/releases)
-- [Contributing](https://github.com/archiverjs/node-zip-stream/blob/master/CONTRIBUTING.md)
-- [MIT License](https://github.com/archiverjs/node-zip-stream/blob/master/LICENSE)
-
 ## Credits
 
 Concept inspired by Antoine van Wel's [zipstream](https://npmjs.org/package/zipstream) module, which is no longer being updated.

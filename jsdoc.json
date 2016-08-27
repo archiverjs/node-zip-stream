@@ -19,7 +19,7 @@
     },
     "archiver": {
       "projectName": "ZipStream",
-      "htmlTitleSuffix": "ZipStream Documentation",
+      "htmlTitleSuffix": "Archiver Documentation",
       "googleTagManager": "GTM-M6N9BH"
     }
   }
