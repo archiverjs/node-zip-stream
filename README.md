@@ -1,4 +1,4 @@
-# zip-stream v0.8.0 [![Build Status](https://travis-ci.org/archiverjs/node-zip-stream.svg?branch=master)](https://travis-ci.org/archiverjs/node-zip-stream) [![Build status](https://ci.appveyor.com/api/projects/status/2sraarbaadwbtti2/branch/master?svg=true)](https://ci.appveyor.com/project/ctalkington/node-zip-stream/branch/master)
+# zip-stream v1.1.0 [![Build Status](https://travis-ci.org/archiverjs/node-zip-stream.svg?branch=master)](https://travis-ci.org/archiverjs/node-zip-stream) [![Build status](https://ci.appveyor.com/api/projects/status/2sraarbaadwbtti2/branch/master?svg=true)](https://ci.appveyor.com/project/ctalkington/node-zip-stream/branch/master)
 
 zip-stream is a streaming zip archive generator based on the `ZipArchiveOutputStream` prototype found in the [compress-commons](https://www.npmjs.org/package/compress-commons) project.
 
