@@ -24,7 +24,7 @@
   },
   "scripts": {
     "test": "mocha --reporter dot",
-    "gendocs": "jsdoc -c jsdoc.json readme.md"
+    "jsdoc": "jsdoc -c jsdoc.json README.md"
   },
   "dependencies": {
     "archiver-utils": "^1.3.0",
@@ -33,6 +33,8 @@
     "readable-stream": "^2.0.0"
   },
   "devDependencies": {
+    "archiver-jsdoc-theme": "^1.0.0",
+    "jsdoc": "~3.4.0",
     "chai": "^3.4.0",
     "jsdoc": "^3.4.0",
     "minami": "^1.1.0",

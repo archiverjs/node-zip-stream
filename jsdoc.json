@@ -1,13 +1,14 @@
 {
   "source": {
-    "include": ["readme.md", "index.js"],
+    "include": ["README.md", "index.js", "lib"],
     "includePattern": ".js$",
     "excludePattern": "(node_modules/)"
   },
   "opts": {
     "recurse": true,
-    "destination": "../archiver-website/zip-stream/",
-    "template": "node_modules/minami"
+    "destination": "tmp/jsdoc/",
+    "template": "node_modules/archiver-jsdoc-theme",
+    "changelog": "CHANGELOG.md"
   },
   "plugins": [
     "plugins/markdown"
@@ -15,6 +16,11 @@
   "templates": {
     "default": {
       "includeDate": false
+    },
+    "archiver": {
+      "projectName": "ZipStream",
+      "htmlTitleSuffix": "ZipStream Documentation",
+      "googleTagManager": "GTM-M6N9BH"
     }
   }
 }
