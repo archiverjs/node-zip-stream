@@ -18,8 +18,9 @@
       "includeDate": false
     },
     "archiver": {
+      "logoAltText": "Archiver",
       "projectName": "ZipStream",
-      "htmlTitleHome": "ZipStream - Archiver Documentation",
+      "htmlTitleHome": "ZipStream | Archiver Documentation",
       "htmlTitleSuffix": "Archiver Documentation",
       "googleTagManager": "GTM-M6N9BH"
     }
