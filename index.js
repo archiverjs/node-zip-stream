@@ -17,6 +17,8 @@ var util = require('archiver-utils');
  * @extends external:ZipArchiveOutputStream
  * @param {Object} [options]
  * @param {String} [options.comment] Sets the zip archive comment.
+ * @param {Boolean} [options.forceLocalTime=false] Forces the archive to contain local file times instead of UTC.
+ * @param {Boolean} [options.forceZip64=false] Forces the archive to contain ZIP64 headers.
  * @param {Boolean} [options.store=false] Sets the compression method to STORE.
  * @param {Object} [options.zlib] Passed to [zlib]{@link https://nodejs.org/api/zlib.html#zlib_class_options}
  * to control compression.
