@@ -139,6 +139,7 @@ describe('pack', function() {
       var testStream = new WriteHashStream('tmp/store-level0.zip');
 
       testStream.on('close', function() {
+        assert.equal(testStream.digest, '70b50994c971dbb0e457781cf6d23ca82e5ccbc0');
         done();
       });
 
