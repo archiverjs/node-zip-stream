@@ -132,7 +132,7 @@ describe('pack', function() {
 
     it('should support file extra', function(done) {
       var archive = new Packer();
-      var extra = Buffer.from('Extra data', 'UTF-8');
+      var extra = new Buffer('Extra data', 'UTF-8');
 
       var testStream = new WriteHashStream('tmp/extra.zip');
 
