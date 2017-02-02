@@ -135,6 +135,10 @@ ZipStream.prototype.entry = function(source, data, callback) {
     entry.setUnixMode(data.mode);
   }
 
+  if (data.extra) {
+    entry.setExtra(data.extra);
+  }
+
   return ZipArchiveOutputStream.prototype.entry.call(this, entry, source, callback);
 };
 

@@ -130,6 +130,22 @@ describe('pack', function() {
       archive.finalize();
     });
 
+    it('should support file extra', function(done) {
+      var archive = new Packer();
+      var extra = new Buffer('Extra data', 'UTF-8');
+
+      var testStream = new WriteHashStream('tmp/extra.zip');
+
+      testStream.on('close', function() {
+        done();
+      });
+
+      archive.pipe(testStream);
+
+      archive.entry(testBuffer, { name: 'buffer.txt', date: testDate, extra: extra});
+      archive.finalize();
+    });
+
     it('should STORE files when compression level is zero', function(done) {
       var archive = new Packer({
         forceUTC: true,
