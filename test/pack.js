@@ -310,6 +310,22 @@ describe('pack', function() {
       archive.finalize();
     });
 
+    it('should support symlink entries', function(done) {
+        var archive = new Packer();
+        var testStream = new WriteHashStream('tmp/type-symlink.zip');
+
+        testStream.on('close', function() {
+            done();
+        });
+
+        archive.pipe(testStream);
+
+        archive.entry(null, { name: 'file', date: testDate });
+        archive.entry(null, { type: 'symlink', name: 'file-link', linkname: 'file', date: testDate });
+        archive.entry(null, { type: 'symlink', name: 'file-link-2', linkname: 'file', date: testDate, mode: 0644 });
+        archive.finalize();
+    });
+
   });
 
 });
