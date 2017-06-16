@@ -320,10 +320,16 @@ describe('pack', function() {
 
         archive.pipe(testStream);
 
-        archive.entry(null, { name: 'file', date: testDate });
-        archive.entry(null, { type: 'symlink', name: 'file-link', linkname: 'file', date: testDate });
-        archive.entry(null, { type: 'symlink', name: 'file-link-2', linkname: 'file', date: testDate, mode: 0644 });
-        archive.finalize();
+        archive.entry('some text', { name: 'file', date: testDate }, function(err) {
+            if (err) throw err;
+            archive.entry(null, { type: 'symlink', name: 'file-link', linkname: 'file', date: testDate }, function(err) {
+                if (err) throw err;
+                archive.entry(null, { type: 'symlink', name: 'file-link-2', linkname: 'file', date: testDate, mode: 0644 }, function(err) {
+                    if (err) throw err;
+                    archive.finalize();
+                });
+            });
+        });
     });
 
   });
