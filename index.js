@@ -128,7 +128,7 @@ ZipStream.prototype.entry = function(source, data, callback) {
   }
 
   var entry = new ZipArchiveEntry(data.name);
-  entry.setTime(data.date);
+  entry.setTime(data.date, this.options.forceLocalTime);
 
   if (data.store) {
     entry.setMethod(0);
