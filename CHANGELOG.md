@@ -1,6 +1,6 @@
 ## Changelog
 
-**2.0.0-wip** — <small> June 8, 2018 </small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/1.1.1...2.0.0)
+**2.0.0-wip** — <small> June 8, 2018 </small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/1.2.0...2.0.0)
 
 - remove node v0.10 and v0.12 support.
 
