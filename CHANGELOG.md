@@ -1,6 +1,6 @@
 ## Changelog
 
-**2.0.0-wip** — <small> August 10, 2018 </small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/1.2.0...2.0.0)
+**2.0.0-wip** — <small> August 10, 2018 </small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/1.2.0...master)
 
 - breaking: remove node v0.10 and v0.12 support.
 - other: remove unused lodash dependence (#35)
