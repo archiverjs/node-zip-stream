@@ -1,6 +1,6 @@
 ## Changelog
 
-**2.0.0-wip** — <small> August 22, 2018 </small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/1.2.0...master)
+**2.0.0** — <small> August 22, 2018 </small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/1.2.0...2.0.0)
 
 - breaking: follow node LTS, remove support for versions under 6.
 - other: remove unused lodash dependence (#35)
