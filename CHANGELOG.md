@@ -1,5 +1,9 @@
 ## Changelog
 
+**2.0.1** — <small> August 22, 2018 </small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/2.0.0...2.0.1)
+
+- update to archiver-utils@2
+
 **2.0.0** — <small> August 22, 2018 </small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/1.2.0...2.0.0)
 
 - breaking: follow node LTS, remove support for versions under 6.
