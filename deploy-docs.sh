@@ -5,7 +5,7 @@ if [ "$TRAVIS_REPO_SLUG" != "archiverjs/node-zip-stream" ] || [ "$TRAVIS_PULL_RE
   exit 0
 fi
 
-if [ "$TRAVIS_BRANCH" != "master" ] || [ "$TRAVIS_NODE_VERSION" != "4" ]; then
+if [ "$TRAVIS_BRANCH" != "master" ] || [ "$TRAVIS_NODE_VERSION" != "6" ]; then
   exit 0
 fi
 

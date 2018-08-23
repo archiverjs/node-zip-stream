@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "archiver-jsdoc-theme": "^1.0.0",
-    "jsdoc": "~3.4.0",
+    "jsdoc": "^3.5.0",
     "chai": "^4.0.0",
     "minami": "^1.1.0",
     "mocha": "^5.2.0",
