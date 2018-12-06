@@ -1,37 +1,39 @@
 /*global before,describe,it */
-var fs = require('fs');
+'use strict';
 
-var assert = require('chai').assert;
-var mkdir = require('mkdirp');
+const fs = require('fs');
 
-var helpers = require('./helpers');
-var binaryBuffer = helpers.binaryBuffer;
-var fileBuffer = helpers.fileBuffer;
-var WriteHashStream = helpers.WriteHashStream;
+const assert = require('chai').assert;
+const mkdir = require('mkdirp');
 
-var Packer = require('../index.js');
+const helpers = require('./helpers');
+const binaryBuffer = helpers.binaryBuffer;
+const fileBuffer = helpers.fileBuffer;
+const WriteHashStream = helpers.WriteHashStream;
 
-var testBuffer = binaryBuffer(1024 * 16);
+const Packer = require('../index.js');
 
-var testDate = new Date('Jan 03 2013 14:26:38 GMT');
-var testDate2 = new Date('Feb 10 2013 10:24:42 GMT');
+const testBuffer = binaryBuffer(1024 * 16);
 
-var testDateOverflow = new Date('Jan 1 2044 00:00:00 GMT');
-var testDateUnderflow = new Date('Dec 30 1979 23:59:58 GMT');
+const testDate = new Date('Jan 03 2013 14:26:38 GMT');
+const testDate2 = new Date('Feb 10 2013 10:24:42 GMT');
 
-describe('pack', function() {
-  before(function() {
+const testDateOverflow = new Date('Jan 1 2044 00:00:00 GMT');
+const testDateUnderflow = new Date('Dec 30 1979 23:59:58 GMT');
+
+describe('pack', () => {
+  before(() => {
     mkdir.sync('tmp');
   });
 
-  describe('#entry', function() {
+  describe('#entry', () => {
 
-    it('should append Buffer sources', function(done) {
-      var archive = new Packer();
+    it('should append Buffer sources', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/buffer.zip');
+      const testStream = new WriteHashStream('tmp/buffer.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
@@ -41,12 +43,12 @@ describe('pack', function() {
       archive.finalize();
     });
 
-    it('should append Stream sources', function(done) {
-      var archive = new Packer();
+    it('should append Stream sources', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/stream.zip');
+      const testStream = new WriteHashStream('tmp/stream.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
@@ -56,24 +58,24 @@ describe('pack', function() {
       archive.finalize();
     });
 
-    it('should append multiple sources', function(done) {
-      var archive = new Packer();
+    it('should append multiple sources', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/multiple.zip');
+      const testStream = new WriteHashStream('tmp/multiple.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
       archive.pipe(testStream);
 
-      archive.entry('string', { name: 'string.txt', date: testDate }, function(err) {
+      archive.entry('string', { name: 'string.txt', date: testDate }, (err) => {
         if (err) throw err;
-        archive.entry(testBuffer, { name: 'buffer.txt', date: testDate2 }, function(err) {
+        archive.entry(testBuffer, { name: 'buffer.txt', date: testDate2 }, (err) => {
           if (err) throw err;
-          archive.entry(fs.createReadStream('test/fixtures/test.txt'), { name: 'stream.txt', date: testDate2 }, function(err) {
+          archive.entry(fs.createReadStream('test/fixtures/test.txt'), { name: 'stream.txt', date: testDate2 }, (err) => {
             if (err) throw err;
-            archive.entry(fs.createReadStream('test/fixtures/test.txt'), { name: 'stream-store.txt', date: testDate, store: true }, function(err) {
+            archive.entry(fs.createReadStream('test/fixtures/test.txt'), { name: 'stream-store.txt', date: testDate, store: true }, (err) => {
               if (err) throw err;
               archive.finalize();
             });
@@ -82,12 +84,12 @@ describe('pack', function() {
       });
     });
 
-    it('should support STORE for Buffer sources', function(done) {
-      var archive = new Packer();
+    it('should support STORE for Buffer sources', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/buffer-store.zip');
+      const testStream = new WriteHashStream('tmp/buffer-store.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
@@ -97,12 +99,12 @@ describe('pack', function() {
       archive.finalize();
     });
 
-    it('should support STORE for Stream sources', function(done) {
-      var archive = new Packer();
+    it('should support STORE for Stream sources', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/stream-store.zip');
+      const testStream = new WriteHashStream('tmp/stream-store.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
@@ -112,15 +114,15 @@ describe('pack', function() {
       archive.finalize();
     });
 
-    it('should support archive and file comments', function(done) {
-      var archive = new Packer({
+    it('should support archive and file comments', (done) => {
+      const archive = new Packer({
         comment: 'this is a zip comment',
         forceUTC: true
       });
 
-      var testStream = new WriteHashStream('tmp/comments.zip');
+      const testStream = new WriteHashStream('tmp/comments.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
@@ -130,15 +132,15 @@ describe('pack', function() {
       archive.finalize();
     });
 
-    it('should STORE files when compression level is zero', function(done) {
-      var archive = new Packer({
+    it('should STORE files when compression level is zero', (done) => {
+      const archive = new Packer({
         forceUTC: true,
         level: 0
       });
 
-      var testStream = new WriteHashStream('tmp/store-level0.zip');
+      const testStream = new WriteHashStream('tmp/store-level0.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         assert.equal(testStream.digest, '70b50994c971dbb0e457781cf6d23ca82e5ccbc0');
         done();
       });
@@ -149,42 +151,42 @@ describe('pack', function() {
       archive.finalize();
     });
 
-    it('should properly handle utf8 encoded characters in file names and comments', function(done) {
-      var archive = new Packer();
+    it('should properly handle utf8 encoded characters in file names and comments', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/accentedchars-filenames.zip');
+      const testStream = new WriteHashStream('tmp/accentedchars-filenames.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
       archive.pipe(testStream);
 
-      archive.entry(testBuffer, { name: 'àáâãäçèéêëìíîïñòóôõöùúûüýÿ.txt', date: testDate, comment: 'àáâãäçèéêëìíîïñòóôõöùúûüýÿ' }, function(err) {
+      archive.entry(testBuffer, { name: 'àáâãäçèéêëìíîïñòóôõöùúûüýÿ.txt', date: testDate, comment: 'àáâãäçèéêëìíîïñòóôõöùúûüýÿ' }, (err) => {
         if (err) throw err;
-        archive.entry(testBuffer, { name: 'ÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ.txt', date: testDate2, comment: 'ÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ' }, function(err) {
+        archive.entry(testBuffer, { name: 'ÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ.txt', date: testDate2, comment: 'ÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ' }, (err) => {
           if (err) throw err;
           archive.finalize();
         });
       });
     });
 
-    it('should append zero length sources', function(done) {
-      var archive = new Packer();
+    it('should append zero length sources', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/zerolength.zip');
+      const testStream = new WriteHashStream('tmp/zerolength.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
       archive.pipe(testStream);
 
-      archive.entry('', { name: 'string.txt', date: testDate }, function(err) {
+      archive.entry('', { name: 'string.txt', date: testDate }, (err) => {
         if (err) throw err;
-        archive.entry(new Buffer(0), { name: 'buffer.txt', date: testDate }, function(err) {
+        archive.entry(new Buffer(0), { name: 'buffer.txt', date: testDate }, (err) => {
           if (err) throw err;
-          archive.entry(fs.createReadStream('test/fixtures/empty.txt'), { name: 'stream.txt', date: testDate }, function(err) {
+          archive.entry(fs.createReadStream('test/fixtures/empty.txt'), { name: 'stream.txt', date: testDate }, (err) => {
             if (err) throw err;
             archive.finalize();
           });
@@ -192,12 +194,12 @@ describe('pack', function() {
       });
     });
 
-    it('should support setting file mode (permissions)', function(done) {
-      var archive = new Packer();
+    it('should support setting file mode (permissions)', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/filemode.zip');
+      const testStream = new WriteHashStream('tmp/filemode.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
@@ -207,12 +209,12 @@ describe('pack', function() {
       archive.finalize();
     });
 
-    it('should support creating an empty zip', function(done) {
-      var archive = new Packer();
+    it('should support creating an empty zip', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/empty.zip');
+      const testStream = new WriteHashStream('tmp/empty.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
@@ -221,12 +223,12 @@ describe('pack', function() {
       archive.finalize();
     });
 
-    it('should support compressing images for Buffer sources', function(done) {
-      var archive = new Packer();
+    it('should support compressing images for Buffer sources', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/buffer-image.zip');
+      const testStream = new WriteHashStream('tmp/buffer-image.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
@@ -236,12 +238,12 @@ describe('pack', function() {
       archive.finalize();
     });
 
-    it('should support compressing images for Stream sources', function(done) {
-      var archive = new Packer();
+    it('should support compressing images for Stream sources', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/stream-image.zip');
+      const testStream = new WriteHashStream('tmp/stream-image.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
@@ -251,55 +253,55 @@ describe('pack', function() {
       archive.finalize();
     });
 
-    it('should prevent UInt32 under/overflow of dates', function(done) {
-      var archive = new Packer();
+    it('should prevent UInt32 under/overflow of dates', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/date-boundaries.zip');
+      const testStream = new WriteHashStream('tmp/date-boundaries.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
       archive.pipe(testStream);
 
-      archive.entry(testBuffer, { name: 'date-underflow.txt', date: testDateUnderflow }, function(err) {
+      archive.entry(testBuffer, { name: 'date-underflow.txt', date: testDateUnderflow }, (err) => {
         if (err) throw err;
-        archive.entry(testBuffer, { name: 'date-overflow.txt', date: testDateOverflow }, function(err) {
+        archive.entry(testBuffer, { name: 'date-overflow.txt', date: testDateOverflow }, (err) => {
           if (err) throw err;
           archive.finalize();
         });
       });
     });
 
-    it('should handle data that exceeds its internal buffer size', function(done) {
-      var archive = new Packer({
+    it('should handle data that exceeds its internal buffer size', (done) => {
+      const archive = new Packer({
         highWaterMark: 1024 * 4,
         forceUTC: true
       });
 
-      var testStream = new WriteHashStream('tmp/buffer-overflow.zip');
+      const testStream = new WriteHashStream('tmp/buffer-overflow.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
       archive.pipe(testStream);
 
-      archive.entry(binaryBuffer(1024 * 512), { name: 'buffer-overflow.txt', date: testDate }, function(err) {
+      archive.entry(binaryBuffer(1024 * 512), { name: 'buffer-overflow.txt', date: testDate }, (err) => {
         if (err) throw err;
-        archive.entry(binaryBuffer(1024 * 1024), { name: 'buffer-overflow-store.txt', date: testDate, store: true }, function(err) {
+        archive.entry(binaryBuffer(1024 * 1024), { name: 'buffer-overflow-store.txt', date: testDate, store: true }, (err) => {
           if (err) throw err;
           archive.finalize();
         });
       });
     });
 
-    it('should support directory entries', function(done) {
-      var archive = new Packer();
+    it('should support directory entries', (done) => {
+      const archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/type-directory.zip');
+      const testStream = new WriteHashStream('tmp/type-directory.zip');
 
-      testStream.on('close', function() {
+      testStream.on('close', () => {
         done();
       });
 
@@ -310,26 +312,26 @@ describe('pack', function() {
       archive.finalize();
     });
 
-    it('should support symlink entries', function(done) {
-        var archive = new Packer();
-        var testStream = new WriteHashStream('tmp/type-symlink.zip');
+    it('should support symlink entries', (done) => {
+      const archive = new Packer();
+      const testStream = new WriteHashStream('tmp/type-symlink.zip');
 
-        testStream.on('close', function() {
-            done();
-        });
+      testStream.on('close', () => {
+        done();
+      });
 
-        archive.pipe(testStream);
+      archive.pipe(testStream);
 
-        archive.entry('some text', { name: 'file', date: testDate }, function(err) {
+      archive.entry('some text', { name: 'file', date: testDate }, (err) => {
+        if (err) throw err;
+        archive.entry(null, { type: 'symlink', name: 'file-link', linkname: 'file', date: testDate }, (err) => {
+          if (err) throw err;
+          archive.entry(null, { type: 'symlink', name: 'file-link-2', linkname: 'file', date: testDate, mode: 0644 }, (err) => {
             if (err) throw err;
-            archive.entry(null, { type: 'symlink', name: 'file-link', linkname: 'file', date: testDate }, function(err) {
-                if (err) throw err;
-                archive.entry(null, { type: 'symlink', name: 'file-link-2', linkname: 'file', date: testDate, mode: 0644 }, function(err) {
-                    if (err) throw err;
-                    archive.finalize();
-                });
-            });
+            archive.finalize();
+          });
         });
+      });
     });
 
   });

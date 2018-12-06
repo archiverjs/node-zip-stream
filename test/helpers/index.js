@@ -1,10 +1,12 @@
-var crypto = require('crypto');
-var fs = require('fs');
-var inherits = require('util').inherits;
+'use strict';
 
-var Stream = require('stream').Stream;
-var Readable = require('readable-stream').Readable;
-var Writable = require('readable-stream').Writable;
+const crypto = require('crypto');
+const fs = require('fs');
+const inherits = require('util').inherits;
+
+const Stream = require('stream').Stream;
+const Readable = require('readable-stream').Readable;
+const Writable = require('readable-stream').Writable;
 
 function adjustDateByOffset(d, offset) {
   d = (d instanceof Date) ? d : new Date();
@@ -21,10 +23,10 @@ function adjustDateByOffset(d, offset) {
 module.exports.adjustDateByOffset = adjustDateByOffset;
 
 function binaryBuffer(n) {
-  var buffer = Buffer.alloc(n);
+  const buffer = Buffer.alloc(n);
 
-  for (var i = 0; i < n; i++) {
-    buffer.writeUInt8(i&255, i);
+  for (let i = 0; i < n; i++) {
+    buffer.writeUInt8(i & 255, i);
   }
 
   return buffer;
@@ -35,10 +37,10 @@ module.exports.binaryBuffer = binaryBuffer;
 function BinaryStream(size, options) {
   Readable.call(this, options);
 
-  var buf = Buffer.alloc(size);
+  const buf = Buffer.alloc(size);
 
-  for (var i = 0; i < size; i++) {
-    buf.writeUInt8(i&255, i);
+  for (let i = 0; i < size; i++) {
+    buf.writeUInt8(i & 255, i);
   }
 
   this.push(buf);

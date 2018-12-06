@@ -5,12 +5,14 @@
  * @license [MIT]{@link https://github.com/archiverjs/node-zip-stream/blob/master/LICENSE}
  * @copyright (c) 2014 Chris Talkington, contributors.
  */
-var inherits = require('util').inherits;
+'use strict';
 
-var ZipArchiveOutputStream = require('compress-commons').ZipArchiveOutputStream;
-var ZipArchiveEntry = require('compress-commons').ZipArchiveEntry;
+const inherits = require('util').inherits;
 
-var util = require('archiver-utils');
+const ZipArchiveOutputStream = require('compress-commons').ZipArchiveOutputStream;
+const ZipArchiveEntry = require('compress-commons').ZipArchiveEntry;
+
+const util = require('archiver-utils');
 
 /**
  * @constructor
@@ -23,7 +25,7 @@ var util = require('archiver-utils');
  * @param {Object} [options.zlib] Passed to [zlib]{@link https://nodejs.org/api/zlib.html#zlib_class_options}
  * to control compression.
  */
-var ZipStream = module.exports = function(options) {
+const ZipStream = module.exports = function(options) {
   if (!(this instanceof ZipStream)) {
     return new ZipStream(options);
   }
@@ -67,8 +69,8 @@ ZipStream.prototype._normalizeFileData = function(data) {
     comment: ''
   });
 
-  var isDir = data.type === 'directory';
-  var isSymlink = data.type === 'symlink';
+  let isDir = data.type === 'directory';
+  const isSymlink = data.type === 'symlink';
 
   if (data.name) {
     data.name = util.sanitizePath(data.name);
@@ -127,7 +129,7 @@ ZipStream.prototype.entry = function(source, data, callback) {
     return;
   }
 
-  var entry = new ZipArchiveEntry(data.name);
+  const entry = new ZipArchiveEntry(data.name);
   entry.setTime(data.date, this.options.forceLocalTime);
 
   if (data.store) {
