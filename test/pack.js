@@ -205,7 +205,7 @@ describe('pack', () => {
 
       archive.pipe(testStream);
 
-      archive.entry(testBuffer, { name: 'buffer.txt', date: testDate, mode: 0644 });
+      archive.entry(testBuffer, { name: 'buffer.txt', date: testDate, mode: 0o644 });
       archive.finalize();
     });
 
@@ -326,7 +326,7 @@ describe('pack', () => {
         if (err) throw err;
         archive.entry(null, { type: 'symlink', name: 'file-link', linkname: 'file', date: testDate }, (err) => {
           if (err) throw err;
-          archive.entry(null, { type: 'symlink', name: 'file-link-2', linkname: 'file', date: testDate, mode: 0644 }, (err) => {
+          archive.entry(null, { type: 'symlink', name: 'file-link-2', linkname: 'file', date: testDate, mode: 0o644 }, (err) => {
             if (err) throw err;
             archive.finalize();
           });
