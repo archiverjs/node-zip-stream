@@ -6,11 +6,3 @@ node_js:
   - 6
 matrix:
   fast_finish: true
-env:
-  global:
-  - GH_REPO: github.com/archiverjs/website.git
-  - GH_REPO_BRANCH: master
-  - GH_REPO_DOCSDIR: zip-stream
-  - secure: Csob2EHhQJCklj3NsidJ0kNTmAXavZMf8RtkMvYfkOqk+DsgfwJxMCvrEY+NRiOc9Qatc+EBCEx2VTw9Qmb1zCegOlTqqS/M9/W87ST6hIPr1gEJWzAQO9HfXERFl0zWGL6HwM0NzgJMI+FBalr7vlkQTMjWAfvCDvQLTVqyVIs=
-after_success:
-- bash ./deploy-docs.sh
