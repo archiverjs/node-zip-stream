@@ -182,7 +182,7 @@ describe('pack', function() {
 
       archive.entry('', { name: 'string.txt', date: testDate }, function(err) {
         if (err) throw err;
-        archive.entry(new Buffer(0), { name: 'buffer.txt', date: testDate }, function(err) {
+        archive.entry(Buffer.alloc(0), { name: 'buffer.txt', date: testDate }, function(err) {
           if (err) throw err;
           archive.entry(fs.createReadStream('test/fixtures/empty.txt'), { name: 'stream.txt', date: testDate }, function(err) {
             if (err) throw err;
