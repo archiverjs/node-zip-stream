@@ -79,7 +79,7 @@ module.exports.UnBufferedStream = UnBufferedStream;
 
 function WriteHashStream(path, options) {
   if (options && !options.objectMode) {
-    objectMode.objectMode = true;
+    options.objectMode = true;
   }
   
   fs.WriteStream.call(this, path, options);
