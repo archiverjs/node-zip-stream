@@ -78,6 +78,10 @@ inherits(UnBufferedStream, Stream);
 module.exports.UnBufferedStream = UnBufferedStream;
 
 function WriteHashStream(path, options) {
+  if (options && !options.objectMode) {
+    objectMode.objectMode = true;
+  }
+  
   fs.WriteStream.call(this, path, options);
 
   this.hash = crypto.createHash('sha1');
