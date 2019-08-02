@@ -7,7 +7,6 @@ var mkdir = require('mkdirp');
 var helpers = require('./helpers');
 var binaryBuffer = helpers.binaryBuffer;
 var fileBuffer = helpers.fileBuffer;
-var WriteHashStream = helpers.WriteHashStream;
 
 var Packer = require('../index.js');
 
@@ -29,7 +28,7 @@ describe('pack', function() {
     it('should append Buffer sources', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/buffer.zip');
+      var testStream = fs.createWriteStream('tmp/buffer.zip');
 
       testStream.on('close', function() {
         done();
@@ -44,7 +43,7 @@ describe('pack', function() {
     it('should append Stream sources', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/stream.zip');
+      var testStream = fs.createWriteStream('tmp/stream.zip');
 
       testStream.on('close', function() {
         done();
@@ -59,7 +58,7 @@ describe('pack', function() {
     it('should append multiple sources', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/multiple.zip');
+      var testStream = fs.createWriteStream('tmp/multiple.zip');
 
       testStream.on('close', function() {
         done();
@@ -85,7 +84,7 @@ describe('pack', function() {
     it('should support STORE for Buffer sources', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/buffer-store.zip');
+      var testStream = fs.createWriteStream('tmp/buffer-store.zip');
 
       testStream.on('close', function() {
         done();
@@ -100,7 +99,7 @@ describe('pack', function() {
     it('should support STORE for Stream sources', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/stream-store.zip');
+      var testStream = fs.createWriteStream('tmp/stream-store.zip');
 
       testStream.on('close', function() {
         done();
@@ -118,7 +117,7 @@ describe('pack', function() {
         forceUTC: true
       });
 
-      var testStream = new WriteHashStream('tmp/comments.zip');
+      var testStream = fs.createWriteStream('tmp/comments.zip');
 
       testStream.on('close', function() {
         done();
@@ -136,7 +135,7 @@ describe('pack', function() {
         level: 0
       });
 
-      var testStream = new WriteHashStream('tmp/store-level0.zip');
+      var testStream = fs.createWriteStream('tmp/store-level0.zip');
 
       testStream.on('close', function() {
         assert.equal(testStream.digest, '70b50994c971dbb0e457781cf6d23ca82e5ccbc0');
@@ -152,7 +151,7 @@ describe('pack', function() {
     it('should properly handle utf8 encoded characters in file names and comments', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/accentedchars-filenames.zip');
+      var testStream = fs.createWriteStream('tmp/accentedchars-filenames.zip');
 
       testStream.on('close', function() {
         done();
@@ -172,7 +171,7 @@ describe('pack', function() {
     it('should append zero length sources', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/zerolength.zip');
+      var testStream = fs.createWriteStream('tmp/zerolength.zip');
 
       testStream.on('close', function() {
         done();
@@ -195,7 +194,7 @@ describe('pack', function() {
     it('should support setting file mode (permissions)', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/filemode.zip');
+      var testStream = fs.createWriteStream('tmp/filemode.zip');
 
       testStream.on('close', function() {
         done();
@@ -210,7 +209,7 @@ describe('pack', function() {
     it('should support creating an empty zip', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/empty.zip');
+      var testStream = fs.createWriteStream('tmp/empty.zip');
 
       testStream.on('close', function() {
         done();
@@ -224,7 +223,7 @@ describe('pack', function() {
     it('should support compressing images for Buffer sources', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/buffer-image.zip');
+      var testStream = fs.createWriteStream('tmp/buffer-image.zip');
 
       testStream.on('close', function() {
         done();
@@ -239,7 +238,7 @@ describe('pack', function() {
     it('should support compressing images for Stream sources', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/stream-image.zip');
+      var testStream = fs.createWriteStream('tmp/stream-image.zip');
 
       testStream.on('close', function() {
         done();
@@ -254,7 +253,7 @@ describe('pack', function() {
     it('should prevent UInt32 under/overflow of dates', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/date-boundaries.zip');
+      var testStream = fs.createWriteStream('tmp/date-boundaries.zip');
 
       testStream.on('close', function() {
         done();
@@ -277,7 +276,7 @@ describe('pack', function() {
         forceUTC: true
       });
 
-      var testStream = new WriteHashStream('tmp/buffer-overflow.zip');
+      var testStream = fs.createWriteStream('tmp/buffer-overflow.zip');
 
       testStream.on('close', function() {
         done();
@@ -297,7 +296,7 @@ describe('pack', function() {
     it('should support directory entries', function(done) {
       var archive = new Packer();
 
-      var testStream = new WriteHashStream('tmp/type-directory.zip');
+      var testStream = fs.createWriteStream('tmp/type-directory.zip');
 
       testStream.on('close', function() {
         done();
@@ -312,7 +311,7 @@ describe('pack', function() {
 
     it('should support symlink entries', function(done) {
         var archive = new Packer();
-        var testStream = new WriteHashStream('tmp/type-symlink.zip');
+        var testStream = fs.createWriteStream('tmp/type-symlink.zip');
 
         testStream.on('close', function() {
             done();
