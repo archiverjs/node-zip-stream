@@ -1,5 +1,9 @@
 ## Changelog
 
+**2.1.1** — <small> August 2, 2019 </small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/2.1.0...2.1.1)
+
+- update compress-commons to v2.1.0
+
 **2.1.0** — <small> July 19, 2019 </small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/2.0.1...2.1.0)
 
 - test: now targeting node v12
