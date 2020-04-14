@@ -1,5 +1,10 @@
 ## Changelog
 
+**3.0.0** - <small>April 14, 2020</small> — [Diff](https://github.com/archiverjs/node-archiver/compare/2.1.3...3.0.0)
+
+- breaking: slowly catch up with node LTS, remove support for versions under 8.
+- update multiple deps.
+
 **2.1.3** — <small> January 8, 2020 </small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/2.1.0...2.1.3)
 
 - allow zip64 for no compression (#40)
