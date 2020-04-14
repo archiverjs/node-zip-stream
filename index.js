@@ -56,7 +56,7 @@ inherits(ZipStream, ZipArchiveOutputStream);
  * @param  {Object} data
  * @return {Object}
  */
-ZipStream.prototype._normalizeFileData = function(data) {
+ZipStream.prototype._normalizeFileData = function(source, data) {
   data = util.defaults(data, {
     type: 'file',
     name: null,
@@ -81,7 +81,7 @@ ZipStream.prototype._normalizeFileData = function(data) {
     }
   }
 
-  if (isDir || isSymlink) {
+  if (isDir || isSymlink || source.length === 0) {
     data.store = true;
   }
 
@@ -110,7 +110,7 @@ ZipStream.prototype.entry = function(source, data, callback) {
     callback = this._emitErrorCallback.bind(this);
   }
 
-  data = this._normalizeFileData(data);
+  data = this._normalizeFileData(source, data);
 
   if (data.type !== 'file' && data.type !== 'directory' && data.type !== 'symlink') {
     callback(new Error(data.type + ' entries not currently supported'));
