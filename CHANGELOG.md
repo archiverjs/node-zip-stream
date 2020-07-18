@@ -1,5 +1,14 @@
 ## Changelog
 
+**4.0.0** - <small>July 18, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/3.0.1...4.0.0)
+
+* Bump mocha from 6.2.3 to 8.0.1 (#47) @dependabot
+* Bump rimraf from 2.7.1 to 3.0.2 (#46) @dependabot
+* Bump actions/setup-node from v1 to v2.1.0 (#45) @dependabot
+* Bump mkdirp from 0.5.5 to 1.0.4 (#48) @dependabot
+* remove support for node < 10 (#49) @ctalkington
+* Bump actions/checkout from v1 to v2.3.1 (#44) @dependabot
+
 **3.0.1** - <small>April 14, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/3.0.0...3.0.1)
 
 - update to compress-commons@^3.0.0
