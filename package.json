@@ -20,7 +20,7 @@
     "index.js"
   ],
   "engines": {
-    "node": ">= 8"
+    "node": ">= 10"
   },
   "scripts": {
     "test": "mocha --reporter dot",
