@@ -1,5 +1,9 @@
 ## Changelog
 
+**4.0.1** - <small>July 20, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.0....4.0.1)
+
+* Bump compress-commons from 3.0.0 to 4.0.0 (#50) @dependabot
+
 **4.0.0** - <small>July 18, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/3.0.1...4.0.0)
 
 * Bump mocha from 6.2.3 to 8.0.1 (#47) @dependabot
