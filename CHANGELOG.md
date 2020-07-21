@@ -1,6 +1,10 @@
 ## Changelog
 
-**4.0.1** - <small>July 20, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.0....4.0.1)
+**4.0.2** - <small>July 20, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.0.1...4.0.2)
+
+* Bump compress-commons from 4.0.0 to 4.0.1 (#51) @dependabot
+
+**4.0.1** - <small>July 20, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.0.0...4.0.1)
 
 * Bump compress-commons from 3.0.0 to 4.0.0 (#50) @dependabot
 
