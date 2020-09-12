@@ -1,22 +1,20 @@
 /*global before,describe,it */
-var fs = require('fs');
+const fs = require('fs');
 
-var assert = require('chai').assert;
-var mkdir = require('mkdirp');
+const assert = require('chai').assert;
+const mkdir = require('mkdirp');
 
-var helpers = require('./helpers');
-var binaryBuffer = helpers.binaryBuffer;
-var fileBuffer = helpers.fileBuffer;
+const { binaryBuffer, fileBuffer } = require('./helpers');
 
-var Packer = require('../index.js');
+const Packer = require('../index.js');
 
-var testBuffer = binaryBuffer(1024 * 16);
+const testBuffer = binaryBuffer(1024 * 16);
 
-var testDate = new Date('Jan 03 2013 14:26:38 GMT');
-var testDate2 = new Date('Feb 10 2013 10:24:42 GMT');
+const testDate = new Date('Jan 03 2013 14:26:38 GMT');
+const testDate2 = new Date('Feb 10 2013 10:24:42 GMT');
 
-var testDateOverflow = new Date('Jan 1 2044 00:00:00 GMT');
-var testDateUnderflow = new Date('Dec 30 1979 23:59:58 GMT');
+const testDateOverflow = new Date('Jan 1 2044 00:00:00 GMT');
+const testDateUnderflow = new Date('Dec 30 1979 23:59:58 GMT');
 
 describe('pack', function() {
   before(function() {
@@ -26,9 +24,9 @@ describe('pack', function() {
   describe('#entry', function() {
 
     it('should append Buffer sources', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/buffer.zip');
+      const testStream = fs.createWriteStream('tmp/buffer.zip');
 
       testStream.on('close', function() {
         done();
@@ -41,9 +39,9 @@ describe('pack', function() {
     });
 
     it('should append Stream sources', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/stream.zip');
+      const testStream = fs.createWriteStream('tmp/stream.zip');
 
       testStream.on('close', function() {
         done();
@@ -56,9 +54,9 @@ describe('pack', function() {
     });
 
     it('should append multiple sources', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/multiple.zip');
+      const testStream = fs.createWriteStream('tmp/multiple.zip');
 
       testStream.on('close', function() {
         done();
@@ -82,9 +80,9 @@ describe('pack', function() {
     });
 
     it('should support STORE for Buffer sources', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/buffer-store.zip');
+      const testStream = fs.createWriteStream('tmp/buffer-store.zip');
 
       testStream.on('close', function() {
         done();
@@ -97,9 +95,9 @@ describe('pack', function() {
     });
 
     it('should support STORE for Stream sources', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/stream-store.zip');
+      const testStream = fs.createWriteStream('tmp/stream-store.zip');
 
       testStream.on('close', function() {
         done();
@@ -112,12 +110,12 @@ describe('pack', function() {
     });
 
     it('should support archive and file comments', function(done) {
-      var archive = new Packer({
+      const archive = new Packer({
         comment: 'this is a zip comment',
         forceUTC: true
       });
 
-      var testStream = fs.createWriteStream('tmp/comments.zip');
+      const testStream = fs.createWriteStream('tmp/comments.zip');
 
       testStream.on('close', function() {
         done();
@@ -130,12 +128,12 @@ describe('pack', function() {
     });
 
     it('should STORE files when compression level is zero', function(done) {
-      var archive = new Packer({
+      const archive = new Packer({
         forceUTC: true,
         level: 0
       });
 
-      var testStream = fs.createWriteStream('tmp/store-level0.zip');
+      const testStream = fs.createWriteStream('tmp/store-level0.zip');
 
       testStream.on('close', function() {
         //assert.equal(testStream.digest, '70b50994c971dbb0e457781cf6d23ca82e5ccbc0');
@@ -149,9 +147,9 @@ describe('pack', function() {
     });
 
     it('should properly handle utf8 encoded characters in file names and comments', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/accentedchars-filenames.zip');
+      const testStream = fs.createWriteStream('tmp/accentedchars-filenames.zip');
 
       testStream.on('close', function() {
         done();
@@ -169,9 +167,9 @@ describe('pack', function() {
     });
 
     it('should append zero length sources', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/zerolength.zip');
+      const testStream = fs.createWriteStream('tmp/zerolength.zip');
 
       testStream.on('close', function() {
         done();
@@ -192,9 +190,9 @@ describe('pack', function() {
     });
 
     it('should support setting file mode (permissions)', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/filemode.zip');
+      const testStream = fs.createWriteStream('tmp/filemode.zip');
 
       testStream.on('close', function() {
         done();
@@ -207,9 +205,9 @@ describe('pack', function() {
     });
 
     it('should support creating an empty zip', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/empty.zip');
+      const testStream = fs.createWriteStream('tmp/empty.zip');
 
       testStream.on('close', function() {
         done();
@@ -221,9 +219,9 @@ describe('pack', function() {
     });
 
     it('should support compressing images for Buffer sources', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/buffer-image.zip');
+      const testStream = fs.createWriteStream('tmp/buffer-image.zip');
 
       testStream.on('close', function() {
         done();
@@ -236,9 +234,9 @@ describe('pack', function() {
     });
 
     it('should support compressing images for Stream sources', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/stream-image.zip');
+      const testStream = fs.createWriteStream('tmp/stream-image.zip');
 
       testStream.on('close', function() {
         done();
@@ -251,9 +249,9 @@ describe('pack', function() {
     });
 
     it('should prevent UInt32 under/overflow of dates', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/date-boundaries.zip');
+      const testStream = fs.createWriteStream('tmp/date-boundaries.zip');
 
       testStream.on('close', function() {
         done();
@@ -271,12 +269,12 @@ describe('pack', function() {
     });
 
     it('should handle data that exceeds its internal buffer size', function(done) {
-      var archive = new Packer({
+      const archive = new Packer({
         highWaterMark: 1024 * 4,
         forceUTC: true
       });
 
-      var testStream = fs.createWriteStream('tmp/buffer-overflow.zip');
+      const testStream = fs.createWriteStream('tmp/buffer-overflow.zip');
 
       testStream.on('close', function() {
         done();
@@ -294,9 +292,9 @@ describe('pack', function() {
     });
 
     it('should support directory entries', function(done) {
-      var archive = new Packer();
+      const archive = new Packer();
 
-      var testStream = fs.createWriteStream('tmp/type-directory.zip');
+      const testStream = fs.createWriteStream('tmp/type-directory.zip');
 
       testStream.on('close', function() {
         done();
@@ -310,8 +308,8 @@ describe('pack', function() {
     });
 
     it('should support symlink entries', function(done) {
-        var archive = new Packer();
-        var testStream = fs.createWriteStream('tmp/type-symlink.zip');
+      const archive = new Packer();
+      const testStream = fs.createWriteStream('tmp/type-symlink.zip');
 
         testStream.on('close', function() {
             done();
