@@ -127,6 +127,13 @@ ZipStream.prototype.entry = function(source, data, callback) {
     return;
   }
 
+  var isDirectorySymlink = data.type === 'symlink' && data.name.slice(-1) === "/" && data.linkname.slice(-1) === "/"; 
+  
+  if (isDirectorySymlink) {
+    data.name = data.name.slice(0, -1);
+    data.linkname = data.linkname.slice(0, -1);
+  }
+
   var entry = new ZipArchiveEntry(data.name);
   entry.setTime(data.date, this.options.forceLocalTime);
 
@@ -139,7 +146,7 @@ ZipStream.prototype.entry = function(source, data, callback) {
   }
 
   if (data.type === 'symlink' && typeof data.mode !== 'number') {
-    data.mode = 40960; // 0120000
+    data.mode = isDirectorySymlink ? 755 : 40960; // 0120000
   }
 
   if (typeof data.mode === 'number') {

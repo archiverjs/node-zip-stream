@@ -309,9 +309,9 @@ describe('pack', function() {
       archive.finalize();
     });
 
-    it('should support symlink entries', function(done) {
+    it('should support file symlink entries', function(done) {
         var archive = new Packer();
-        var testStream = fs.createWriteStream('tmp/type-symlink.zip');
+        var testStream = fs.createWriteStream('tmp/type-file-symlink.zip');
 
         testStream.on('close', function() {
             done();
@@ -330,6 +330,26 @@ describe('pack', function() {
             });
         });
     });
+
+    it('should support directory symlink entries', function(done) {
+      var archive = new Packer();
+      var testStream = fs.createWriteStream('tmp/type-dir-symlink.zip');
+
+      testStream.on('close', function() {
+          done();
+      });
+
+      archive.pipe(testStream);
+
+      archive.entry(null, { name: 'directory-a/', date: testDate });
+      archive.entry('file-a text', { name: 'directory-a/file-a', date: testDate }, function(err) {
+          if (err) throw err;
+          archive.entry(null, { type: 'symlink', name: 'directory-b/directory-c/', linkname: '../directory-a/', date: testDate }, function(err) {
+              if (err) throw err;
+              archive.finalize();
+          });
+      });
+  });
 
   });
 
