@@ -1,5 +1,33 @@
 ## Changelog
 
+**4.0.5** - <small>November 18, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.0.4...4.0.5)
+
+- No Changes
+
+**4.0.4** - <small>November 18, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.0.3...4.0.4)
+
+### Maintenance
+
+- Bump compress-commons from 4.0.1 to 4.0.2 (#72)
+
+**4.0.3** - <small>November 18, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.0.2...4.0.3)
+
+### Maintenance
+
+- Update docs example with latest ES6 syntax (#60)
+- Update archiver-jsdoc-theme to ^1.1.3 (#71)
+- Update archiver-jsdoc-theme to ^1.1.2 (#70)
+- Bump jsdoc from 3.6.5 to 3.6.6 (#62)
+- Bump actions/setup-node from v2.1.1 to v2.1.2 (#64)
+- Bump mocha from 8.1.1 to 8.2.1 (#66)
+- Bump actions/checkout from v2.3.2 to v2.3.4 (#67)
+- Bump mocha from 8.1.0 to 8.1.1 (#55)
+- Bump actions/checkout from v2.3.1 to v2.3.2 (#56)
+- Bump mocha from 8.0.1 to 8.1.0 (#54)
+- Bump actions/setup-node from v2.1.0 to v2.1.1 (#52)
+- Bump jsdoc from 3.6.4 to 3.6.5 (#53)
+
+
 **4.0.2** - <small>July 20, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.0.1...4.0.2)
 
 * Bump compress-commons from 4.0.0 to 4.0.1 (#51) @dependabot
