@@ -21,8 +21,8 @@ This module is meant to be wrapped internally by other modules and therefore lac
 If you want a module that handles entry queueing and much more, you should check out [archiver](https://npmjs.org/package/archiver) which uses this module internally.
 
 ```js
-var packer = require('zip-stream');
-var archive = new packer(); // OR new packer(options)
+const Packer = require('zip-stream');
+const archive = new Packer(); // OR new Packer(options)
 
 archive.on('error', function(err) {
   throw err;
