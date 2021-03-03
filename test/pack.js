@@ -331,6 +331,29 @@ describe('pack', function() {
         });
     });
 
+
+    it('should support appending forward slash to entry names', function(done) {
+        var archive = new Packer({
+            namePrependSlash: true,
+        });
+        var testStream = fs.createWriteStream('tmp/name-prepend-slash.zip');
+
+        testStream.on('close', function() {
+            done();
+        });
+
+        archive.pipe(testStream);
+
+        archive.entry('some text', { name: 'file', namePrependSlash: false, date: testDate }, function(err) {
+            if (err) throw err;
+            archive.entry('more text', { type: 'file', name: 'file-with-prefix', date: testDate }, function(err) {
+                if (err) throw err;
+                archive.finalize();
+            });
+        });
+    });
+
+
   });
 
 });

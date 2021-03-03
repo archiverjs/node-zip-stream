@@ -42,6 +42,8 @@ var ZipStream = module.exports = function(options) {
     options.store = true;
   }
 
+  options.namePrependSlash = options.namePrependSlash || false;
+
   if (options.comment && options.comment.length > 0) {
     this.setComment(options.comment);
   }
@@ -60,6 +62,7 @@ ZipStream.prototype._normalizeFileData = function(data) {
   data = util.defaults(data, {
     type: 'file',
     name: null,
+    namePrependSlash: this.options.namePrependSlash,
     linkname: null,
     date: null,
     mode: null,
@@ -129,6 +132,10 @@ ZipStream.prototype.entry = function(source, data, callback) {
 
   var entry = new ZipArchiveEntry(data.name);
   entry.setTime(data.date, this.options.forceLocalTime);
+
+  if (data.namePrependSlash) {
+    entry.setName(data.name, true);
+  }
 
   if (data.store) {
     entry.setMethod(0);

@@ -28,3 +28,8 @@ jobs:
         npm test
       env:
         CI: true
+    - name: Archive production artifacts
+      uses: actions/upload-artifact@v2
+      with:
+         name: tmp-zip
+         path: tmp/*.zip
