@@ -71,7 +71,13 @@ ZipStream.prototype._normalizeFileData = function(data) {
   var isSymlink = data.type === 'symlink';
 
   if (data.name) {
-    data.name = util.sanitizePath(data.name);
+    let prefix = '';
+
+    if (data.name[0] === '/' && data.name[1] !== '/') {
+      prefix = '/':
+    }
+
+    data.name = prefix + util.sanitizePath(data.name);
 
     if (!isSymlink && data.name.slice(-1) === '/') {
       isDir = true;
