@@ -1,5 +1,9 @@
 ## Changelog
 
+**4.1.0** - <small>March 2, 2021</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.0.5...4.1.0)
+
+- No Changes
+
 **4.0.5** - <small>November 18, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.0.4...4.0.5)
 
 - No Changes
