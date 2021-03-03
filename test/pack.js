@@ -331,6 +331,23 @@ describe('pack', function() {
         });
     });
 
+
+    it('should support entries with forward slash prefix', function(done) {
+        var archive = new Packer();
+        var testStream = fs.createWriteStream('tmp/forward-slash-prefix.zip');
+
+        testStream.on('close', function() {
+            done();
+        });
+
+        archive.pipe(testStream);
+
+        archive.entry('some text', { name: '/file', date: testDate });
+
+        archive.finalize();
+    });
+
+
   });
 
 });
