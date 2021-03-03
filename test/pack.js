@@ -342,9 +342,13 @@ describe('pack', function() {
 
         archive.pipe(testStream);
 
-        archive.entry('some text', { name: 'file', prependSlash: true, date: testDate });
-
-        archive.finalize();
+        archive.entry('some text', { name: 'file', namePrependSlash: false, date: testDate }, function(err) {
+            if (err) throw err;
+            archive.entry('more text', { type: 'file', name: 'file-with-prefix', date: testDate }, function(err) {
+                if (err) throw err;
+                archive.finalize();
+            });
+        });
     });
 
 
