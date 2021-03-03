@@ -333,7 +333,9 @@ describe('pack', function() {
 
 
     it('should support appending forward slash to entry names', function(done) {
-        var archive = new Packer();
+        var archive = new Packer({
+            namePrependSlash: true,
+        });
         var testStream = fs.createWriteStream('tmp/forward-slash-prefix.zip');
 
         testStream.on('close', function() {
