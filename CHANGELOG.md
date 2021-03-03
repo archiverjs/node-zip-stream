@@ -2,7 +2,15 @@
 
 **4.1.0** - <small>March 2, 2021</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.0.5...4.1.0)
 
-- No Changes
+## Features
+
+- Allow prepending forward slash in entry name (#79)
+
+## Maintenance
+
+- Bump mocha from 8.2.1 to 8.3.0 (#76)
+- Bump actions/setup-node from v2.1.4 to v2.1.5 (#77)
+- Bump actions/setup-node from v2.1.2 to v2.1.4 (#74)
 
 **4.0.5** - <small>November 18, 2020</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.0.4...4.0.5)
 
