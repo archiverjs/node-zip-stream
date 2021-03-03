@@ -73,7 +73,7 @@ ZipStream.prototype._normalizeFileData = function(data) {
   if (data.name) {
     let prefix = '';
 
-    if (data.name[0] === '/' && data.name[1] !== '/') {
+    if (data.name[0] === '/' && data.name.slice(0,2) !== '//') {
       prefix = '/':
     }
 
