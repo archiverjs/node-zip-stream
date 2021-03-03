@@ -336,7 +336,7 @@ describe('pack', function() {
         var archive = new Packer({
             namePrependSlash: true,
         });
-        var testStream = fs.createWriteStream('tmp/forward-slash-prefix.zip');
+        var testStream = fs.createWriteStream('tmp/name-prepend-slash.zip');
 
         testStream.on('close', function() {
             done();
