@@ -133,7 +133,7 @@ ZipStream.prototype.entry = function(source, data, callback) {
   var entry = new ZipArchiveEntry(data.name);
   entry.setTime(data.date, this.options.forceLocalTime);
 
-  if (data.prependSlash) {
+  if (data.namePrependSlash) {
     entry.setName(data.name, true);
   }
 
