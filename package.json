@@ -29,7 +29,7 @@
   "dependencies": {
     "archiver-utils": "^2.1.0",
     "compress-commons": "^4.1.0",
-    "readable-stream": "^3.6.0"
+    "readable-stream": "^4.2.0"
   },
   "devDependencies": {
     "archiver-jsdoc-theme": "^1.1.3",
