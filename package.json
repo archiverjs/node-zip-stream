@@ -38,7 +38,7 @@
     "minami": "^1.1.0",
     "mkdirp": "^1.0.4",
     "mocha": "^9.0.2",
-    "rimraf": "^3.0.2"
+    "rimraf": "^4.4.0"
   },
   "keywords": [
     "archive",
