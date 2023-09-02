@@ -37,7 +37,7 @@
     "jsdoc": "3.6.6",
     "minami": "1.2.3",
     "mkdirp": "2.1.6",
-    "mocha": "9.0.2",
+    "mocha": "9.2.2",
     "rimraf": "3.0.2"
   },
   "keywords": [
