@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "archiver-utils": "^3.0.4",
-    "compress-commons": "^4.1.2",
+    "compress-commons": "^5.0.0",
     "readable-stream": "^3.6.0"
   },
   "devDependencies": {
