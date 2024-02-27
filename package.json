@@ -27,7 +27,7 @@
     "jsdoc": "jsdoc -c jsdoc.json README.md"
   },
   "dependencies": {
-    "archiver-utils": "^4.0.1",
+    "archiver-utils": "^5.0.0",
     "compress-commons": "^6.0.0",
     "readable-stream": "^3.6.0"
   },
