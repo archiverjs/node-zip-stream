@@ -1,5 +1,7 @@
 ## Changelog
 
+**5.0.2** - <small>February 27, 2024</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/5.0.1...5.0.2)
+
 **5.0.1** - <small>September 3, 2023</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/5.0.0...5.0.1)
 
 **5.0.0** - <small>September 2, 2023</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/4.1.1...5.0.0)
