@@ -66,7 +66,7 @@ describe('pack', function() {
 
       archive.pipe(testStream);
 
-      archive.entry(Readable.from(['test'], { name: 'stream-like.txt', date: testDate });
+      archive.entry(Readable.from(['test']), { name: 'stream-like.txt', date: testDate });
       archive.finalize();
     });
 
