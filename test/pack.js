@@ -3,7 +3,7 @@ var fs = require('fs');
 
 var assert = require('chai').assert;
 var mkdir = require('mkdirp');
-var Readable = require('readable-stream').Readable:
+var Readable = require('readable-stream').Readable;
 
 var helpers = require('./helpers');
 var binaryBuffer = helpers.binaryBuffer;
