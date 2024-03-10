@@ -3,6 +3,7 @@ var fs = require('fs');
 
 var assert = require('chai').assert;
 var mkdir = require('mkdirp');
+var Readable = require('readable-stream').Readable;
 
 var helpers = require('./helpers');
 var binaryBuffer = helpers.binaryBuffer;
@@ -52,6 +53,20 @@ describe('pack', function() {
       archive.pipe(testStream);
 
       archive.entry(fs.createReadStream('test/fixtures/test.txt'), { name: 'stream.txt', date: testDate });
+      archive.finalize();
+    });
+
+    it('should append Stream-like sources', function(done) {
+      var archive = new Packer();
+      var testStream = fs.createWriteStream('tmp/stream-like.zip');
+
+      testStream.on('close', function() {
+        done();
+      });
+
+      archive.pipe(testStream);
+
+      archive.entry(Readable.from(['test']), { name: 'stream-like.txt', date: testDate });
       archive.finalize();
     });
 
