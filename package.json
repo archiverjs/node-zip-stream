@@ -15,12 +15,13 @@
     "url": "https://github.com/archiverjs/node-zip-stream/issues"
   },
   "license": "MIT",
-  "main": "index.js",
+  "type": "module",
+  "exports": "index.js",
   "files": [
     "index.js"
   ],
   "engines": {
-    "node": ">= 14"
+    "node": ">=18"
   },
   "scripts": {
     "test": "mocha --reporter dot",
@@ -28,7 +29,7 @@
   },
   "dependencies": {
     "archiver-utils": "^5.0.0",
-    "compress-commons": "^6.0.2",
+    "compress-commons": "^7.0.0",
     "readable-stream": "^4.0.0"
   },
   "devDependencies": {
@@ -38,6 +39,7 @@
     "minami": "1.2.3",
     "mkdirp": "3.0.1",
     "mocha": "10.7.3",
+    "prettier": "3.3.3",
     "rimraf": "5.0.10"
   },
   "keywords": [

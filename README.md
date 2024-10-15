@@ -21,19 +21,19 @@ This module is meant to be wrapped internally by other modules and therefore lac
 If you want a module that handles entry queueing and much more, you should check out [archiver](https://npmjs.org/package/archiver) which uses this module internally.
 
 ```js
-const Packer = require('zip-stream');
-const archive = new Packer(); // OR new Packer(options)
+import { ZipStream } from "zip-stream":
+const archive = new ZipStream(); // OR new ZipStream(options)
 
-archive.on('error', function(err) {
+archive.on("error", function (err) {
   throw err;
 });
 
 // pipe archive where you want it (ie fs, http, etc)
 // listen to the destination's end, close, or finish event
 
-archive.entry('string contents', { name: 'string.txt' }, function(err, entry) {
+archive.entry("string contents", { name: "string.txt" }, function (err, entry) {
   if (err) throw err;
-  archive.entry(null, { name: 'directory/' }, function(err, entry) {
+  archive.entry(null, { name: "directory/" }, function (err, entry) {
     if (err) throw err;
     archive.finish();
   });
