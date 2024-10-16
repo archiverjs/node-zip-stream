@@ -1,5 +1,5 @@
 import { ZipArchiveOutputStream, ZipArchiveEntry } from "compress-commons";
-import util from "archiver-utils";
+import { dateify, sanitizePath } from "./utils.js";
 
 /**
  * ZipStream
@@ -54,7 +54,7 @@ export default class ZipStream extends ZipArchiveOutputStream {
    * @return {Object}
    */
   _normalizeFileData(data) {
-    data = util.defaults(data, {
+    data = {
       type: "file",
       name: null,
       namePrependSlash: this.options.namePrependSlash,
@@ -63,11 +63,12 @@ export default class ZipStream extends ZipArchiveOutputStream {
       mode: null,
       store: this.options.store,
       comment: "",
-    });
+      ...data,
+    };
     var isDir = data.type === "directory";
     var isSymlink = data.type === "symlink";
     if (data.name) {
-      data.name = util.sanitizePath(data.name);
+      data.name = sanitizePath(data.name);
       if (!isSymlink && data.name.slice(-1) === "/") {
         isDir = true;
         data.type = "directory";
@@ -78,7 +79,7 @@ export default class ZipStream extends ZipArchiveOutputStream {
     if (isDir || isSymlink) {
       data.store = true;
     }
-    data.date = util.dateify(data.date);
+    data.date = dateify(data.date);
     return data;
   }
 

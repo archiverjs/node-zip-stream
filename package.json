@@ -28,8 +28,8 @@
     "jsdoc": "jsdoc -c jsdoc.json README.md"
   },
   "dependencies": {
-    "archiver-utils": "^5.0.0",
     "compress-commons": "^7.0.0",
+    "normalize-path": "^3.0.0",
     "readable-stream": "^4.0.0"
   },
   "devDependencies": {
