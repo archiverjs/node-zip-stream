@@ -65,8 +65,8 @@ export default class ZipStream extends ZipArchiveOutputStream {
       comment: "",
       ...data,
     };
-    var isDir = data.type === "directory";
-    var isSymlink = data.type === "symlink";
+    let isDir = data.type === "directory";
+    const isSymlink = data.type === "symlink";
     if (data.name) {
       data.name = sanitizePath(data.name);
       if (!isSymlink && data.name.slice(-1) === "/") {
@@ -123,7 +123,7 @@ export default class ZipStream extends ZipArchiveOutputStream {
       );
       return;
     }
-    var entry = new ZipArchiveEntry(data.name);
+    const entry = new ZipArchiveEntry(data.name);
     entry.setTime(data.date, this.options.forceLocalTime);
     if (data.namePrependSlash) {
       entry.setName(data.name, true);
