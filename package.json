@@ -30,8 +30,7 @@
   },
   "dependencies": {
     "compress-commons": "^7.0.0",
-    "normalize-path": "^3.0.0",
-    "readable-stream": "^4.0.0"
+    "normalize-path": "^3.0.0"
   },
   "devDependencies": {
     "archiver-jsdoc-theme": "1.1.3",
