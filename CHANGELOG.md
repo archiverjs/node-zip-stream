@@ -1,6 +1,6 @@
 ## Changelog
 
-**7.0.5** - <small>May 8, 2026</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/7.0.4...7.0.45
+**7.0.5** - <small>May 8, 2026</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/7.0.4...7.0.5)
 
 **7.0.4** - <small>May 8, 2026</small> — [Diff](https://github.com/archiverjs/node-zip-stream/compare/7.0.2...7.0.4)
 
