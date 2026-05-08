@@ -21,7 +21,7 @@ This module is meant to be wrapped internally by other modules and therefore lac
 If you want a module that handles entry queueing and much more, you should check out [archiver](https://npmjs.org/package/archiver) which uses this module internally.
 
 ```js
-import { ZipStream } from "zip-stream":
+import { ZipStream } from "zip-stream";
 const archive = new ZipStream(); // OR new ZipStream(options)
 
 archive.on("error", function (err) {
