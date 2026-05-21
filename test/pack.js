@@ -120,7 +120,7 @@ describe("pack", function () {
     it("should support archive and file comments", function (done) {
       var archive = new Packer({
         comment: "this is a zip comment",
-        forceUTC: true,
+        forceLocalTime: false,
       });
       var testStream = createWriteStream("tmp/comments.zip");
       testStream.on("close", function () {
@@ -136,7 +136,7 @@ describe("pack", function () {
     });
     it("should STORE files when compression level is zero", function (done) {
       var archive = new Packer({
-        forceUTC: true,
+        forceLocalTime: false,
         level: 0,
       });
       var testStream = createWriteStream("tmp/store-level0.zip");
@@ -280,7 +280,7 @@ describe("pack", function () {
     it("should handle data that exceeds its internal buffer size", function (done) {
       var archive = new Packer({
         highWaterMark: 1024 * 4,
-        forceUTC: true,
+        forceLocalTime: false,
       });
       var testStream = createWriteStream("tmp/buffer-overflow.zip");
       testStream.on("close", function () {
